@@ -7,13 +7,40 @@
     <title>此处就是显示的标题</title>
     <script src="js/mui.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/tab-main.css" rel="stylesheet" />
     <script type="text/javascript" charset="UTF-8">
         mui.init();
     </script>
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript" src="js/tab-main.jss"></script>
 </head>
 <body>
-    <div class="mui-content">
-        <p>这是主页</p>
+	<!--搜索框-->
+    <div id="search" class="mui-content">
+	    <div class="mui-input-row mui-search">
+		    <input type="search" class="mui-input-clear" placeholder="">
+		</div>
     </div>
+    
+    <!--图片轮播-->
+    <div id="img-policy" class="mui-slider">
+	    <div class="mui-slider-group mui-slider-loop">
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/01.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="images/02.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="images/01.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="images/02.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="images/03.jpg" /></a></div>
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="1.jpg" /></a></div>
+	    </div>
+	    
+	    <script type="text/javascript">
+   			var img_policy = mui('#img-policy');
+			img_policy.slider({
+				interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
+			})
+	    </script>
+	</div>
 </body>
 </html>
