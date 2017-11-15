@@ -1,4 +1,35 @@
+/*********搜索框**********/
 #search {
 	width: 50%;
 	float: right;
+	padding: 0px 0px ;
+	height: 35px;
+}
+
+/************图片政策轮播**********/
+#img_policy {
+	height: 200px;
+}
+
+/*************政策列表************/
+#policy_list {
+	height: 1000px;
+}
+#policy_list .mui-media-body {
+/*	height: 100px;*/	/*不限制高度,根据列表信息量自动调整高度*/
+}
+#policy_list .mui-ellipsis{
+	font-size: 16px;
+	line-height: 30px;
+	white-space:normal;	/*取消p标签内不换行*/
+}
+#policy_list .time {
+	font-size: 12px;
+	float: right;
+	height: 20px;
+}
+.mui-media-body .mui-ellipsis{
+	width: 100%;
+	word-wrap:break-word; 
+	word-break:break-all; 
 }

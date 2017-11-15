@@ -23,7 +23,7 @@
     </div>
     
     <!--图片轮播-->
-    <div id="img-policy" class="mui-slider">
+    <div id="img_policy" class="mui-slider">
 	    <div class="mui-slider-group mui-slider-loop">
 		    <!--支持循环，需要重复图片节点-->
 		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/01.jpg" /></a></div>
@@ -36,11 +36,44 @@
 	    </div>
 	    
 	    <script type="text/javascript">
-   			var img_policy = mui('#img-policy');
+   			var img_policy = mui('#img_policy');
 			img_policy.slider({
 				interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
 			})
 	    </script>
+	</div>
+	
+	<!--消息列表-->
+	<div id="policy_list">
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-media">
+			    <a href="javascript:;">
+			        <div class="mui-media-body">
+			        	国务院
+			            <p class='mui-ellipsis'>李克强对全国小微企业金融服务电视电话会议作出重要批示</p>
+			        	<span class="time">2017-11-15</span>
+			        </div>
+			    </a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+			    <a href="javascript:;">
+			        <div class="mui-media-body">
+						国务院
+			            <p class='mui-ellipsis'>《习近平谈治国理政》第二卷中英文版出版发行</p>
+			            <span class="time">2017-11-15</span>
+			        </div>
+			    </a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+			    <a href="javascript:;">
+			        <div class="mui-media-body">
+						国务院
+			            <p class='mui-ellipsis'>工商总局召开贯彻落实“证照分离”改革试点工作媒体通气会</p>
+			            <span class="time">2017-11-15</span>
+			        </div>
+			    </a>
+			</li>
+		</ul>
 	</div>
 </body>
 </html>
