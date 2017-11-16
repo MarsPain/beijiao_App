@@ -64,20 +64,21 @@
 		<!-- 主页面容器 -->
 		<div class="mui-inner-wrap">
 		    <!-- 头部（从左到右：侧滑按钮、标题、搜索框）-->
-		    <header class="mui-bar mui-bar-nav">
+		    <header id="head" class="mui-bar mui-bar-nav">
 		      	<a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
-		      	<h1 class="mui-title">标题</h1>
+		      	<h1 id="head_title" class="mui-title">标题</h1>
+		      	<!--搜索框-->
+	    		<div id="search" class="mui-content">
+				    <div class="mui-input-row mui-search">
+					    <input type="search" class="mui-input-clear" placeholder="">
+					</div>
+			    </div>
 		    </header>
 		    
 		    <div class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				
-			<!--搜索框-->
-    		<div id="search" class="mui-content">
-			    <div class="mui-input-row mui-search">
-				    <input type="search" class="mui-input-clear" placeholder="">
-				</div>
-		    </div>
+
     
 		    <!--图片轮播-->
 		    <div id="img_policy" class="mui-slider">
@@ -87,7 +88,6 @@
 				    <div class="mui-slider-item"><a href="#"><img src="images/02.jpg" /></a></div>
 				    <div class="mui-slider-item"><a href="#"><img src="images/01.jpg" /></a></div>
 				    <div class="mui-slider-item"><a href="#"><img src="images/02.jpg" /></a></div>
-				    <div class="mui-slider-item"><a href="#"><img src="images/03.jpg" /></a></div>
 				    <!--支持循环，需要重复图片节点-->
 				    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="1.jpg" /></a></div>
 			    </div>
@@ -117,6 +117,15 @@
 					        <div class="mui-media-body">
 								国务院
 					            <p class='mui-ellipsis'>《习近平谈治国理政》第二卷中英文版出版发行</p>
+					            <span class="time">2017-11-15</span>
+					        </div>
+					    </a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+					    <a href="javascript:;">
+					        <div class="mui-media-body">
+								国务院
+					            <p class='mui-ellipsis'>工商总局召开贯彻落实“证照分离”改革试点工作媒体通气会</p>
 					            <span class="time">2017-11-15</span>
 					        </div>
 					    </a>
