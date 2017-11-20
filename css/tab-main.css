@@ -11,9 +11,10 @@
 	display: block;
 	font-size: 20px;
 	font-weight: bold;
+	color: #007AFF;
 }
 #sideBar #sideBar_list {
-	/*margin-top: 40px;*/
+
 }
 #sideBar_list .mui-table-view-cell{
 	height: 60px;
@@ -30,16 +31,26 @@
 
 
 /**************主页头部****************/
+#head{
+	/*background: #de2327;*/
+}
 #head #head_title {
-	width: 40%;
+	font-size: 22px;
+	font-weight: bold;
+	color: #007AFF;
+}
+
+/***********区域选择的下拉菜单*********/
+#popover {
+	width: 50%;
+	float: left;
 }
 
 /*********搜索框**********/
 #search {
 	width: 50%;
 	float: right;
-	padding: 0px 0px ;
-	height: 30px;
+	height: 35px;
 }
 
 /************图片政策轮播**********/
