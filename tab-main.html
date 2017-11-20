@@ -67,15 +67,27 @@
 		    <div class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 			
-			<!--区域选择的下拉菜单-->
-			
-			
-			<!--搜索框-->
-    		<div id="search" class="mui-content">
-			    <div class="mui-input-row mui-search">
-				    <input type="search" class="mui-input-clear" placeholder="">
+			<!--导航栏：左侧是区域选择的下拉菜单，右侧是搜索框-->
+			<div id="nav_wrap">
+				<div id="nav_left_wrap">
+					<ul class="mui-table-view">
+						<li id="nav_left" class="mui-table-view-cell">区域选择
+							<ul id="second_nav_left" class="mui-table-view">
+							    <li class="mui-table-view-cell">Item 1</li>
+							    <li class="mui-table-view-cell">Item 1</li>
+							    <li class="mui-table-view-cell">Item 1</li>
+							</ul>
+						</li>
+					</ul>
 				</div>
-		    </div>
+				
+				<div id="search" class="mui-content">
+				    <div class="mui-input-row mui-search">
+					    <input type="search" class="mui-input-clear" placeholder="">
+					</div>
+			    </div>
+			</div>
+
     
 		    <!--图片轮播-->
 		    <div id="img_policy" class="mui-slider">

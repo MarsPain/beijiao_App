@@ -41,13 +41,29 @@
 }
 
 /***********区域选择的下拉菜单*********/
-#popover {
+#nav_wrap {
+	width: 100%;
+}
+#nav_left_wrap {
 	width: 50%;
 	float: left;
+	color: #007AFF;
+	
+}
+#nav_left_wrap #nav_left {
+	line-height: 30px;
+	text-align: center;
+	font-size: 18px;
+	padding: 5px 0px 0px 0px;
+}
+#nav_left_wrap #nav_left #second_nav_left {
+	line-height: 15px;
+	font-size: 14px;
+	display: none;
 }
 
 /*********搜索框**********/
-#search {
+#nav_wrap #search {
 	width: 50%;
 	float: right;
 	height: 35px;
