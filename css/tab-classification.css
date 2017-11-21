@@ -67,12 +67,6 @@
 }
 
 /*****************第一页标签******************/
-#first_tab {
-	/*height: 1000px;*/	/*不限制高度,根据列表数量自动调整高度*/
-}
-#first_tab .mui-media-body {
-/*	height: 100px;*/	/*不限制高度,根据列表信息量自动调整高度*/
-}
 #first_tab .mui-ellipsis{
 	font-size: 16px;
 	line-height: 30px;
@@ -84,6 +78,26 @@
 	height: 20px;
 }
 #first_tab .mui-media-body .mui-ellipsis{
+	width: 100%;
+	word-wrap:break-word; 
+	word-break:break-all; 
+}
+
+/**************第二页标签*******************/
+#second_tab {
+	display: none;
+}
+#second_tab .mui-ellipsis{
+	font-size: 16px;
+	line-height: 30px;
+	white-space:normal;	/*取消p标签内不换行*/
+}
+#second_tab .time {
+	font-size: 12px;
+	float: right;
+	height: 20px;
+}
+#second_tab .mui-media-body .mui-ellipsis{
 	width: 100%;
 	word-wrap:break-word; 
 	word-break:break-all; 
