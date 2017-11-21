@@ -102,3 +102,30 @@
 	word-wrap:break-word; 
 	word-break:break-all; 
 }
+
+/**************第三页选项卡****************/
+#third_tab {
+	display: none;
+}
+#third_tab .mui-ellipsis{
+	font-size: 16px;
+	line-height: 30px;
+	white-space:normal;	/*取消p标签内不换行*/
+}
+#third_tab .time {
+	font-size: 12px;
+	float: right;
+	height: 20px;
+}
+#third_tab .mui-media-body .mui-ellipsis{
+	width: 100%;
+	word-wrap:break-word; 
+	word-break:break-all; 
+}
+#third_tab .answer {
+	padding: 1px 6px;
+}
+#third_tab .answer_detail{
+	display: none;
+	font-size: 14px;
+}
