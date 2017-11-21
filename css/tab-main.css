@@ -91,7 +91,7 @@
 	float: right;
 	height: 20px;
 }
-.mui-media-body .mui-ellipsis{
+#policy_list .mui-media-body .mui-ellipsis{
 	width: 100%;
 	word-wrap:break-word; 
 	word-break:break-all; 
