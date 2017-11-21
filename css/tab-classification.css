@@ -45,7 +45,11 @@
 
 /*****************标签选择按钮*****************/
 #tab_options {
-	position: fixed;
+
+}
+#tab_options ul {
+	padding: 0px;
+	margin: 0px;
 }
 #tab_options li{
 	float: left;
