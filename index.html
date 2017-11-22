@@ -9,6 +9,7 @@
     <script type="text/javascript" charset="utf-8">
       	mui.init();
     </script>
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 </head>
 <body>
 	<div class="mui-content">
@@ -21,9 +22,9 @@
 	            <span class="mui-icon mui-icon-more"></span>
 	            <span class="mui-tab-label">分类浏览</span>
 	        </a>
-	        <a class="mui-tab-item" href="tab-message.html" data-id="message">
+	        <a id="message" class="mui-tab-item" href="tab-message.html" data-id="message">
 	            <span class="mui-icon mui-icon-chatboxes"></span>
-	            <span class="mui-badge mui-badge-primary">12</span>
+	            <span id="message_number" class="mui-badge mui-badge-primary">12</span>
 	            <span class="mui-tab-label">消息</span>   
 	        </a>
 	        <a class="mui-tab-item" href="tab-personal.html" data-id="personal">
