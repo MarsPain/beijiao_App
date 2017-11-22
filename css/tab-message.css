@@ -82,6 +82,13 @@
 	word-wrap:break-word; 
 	word-break:break-all; 
 }
+#first_tab .answer {
+	padding: 1px 6px;
+}
+#first_tab .answer_detail{
+	display: none;
+	font-size: 14px;
+}
 
 /**************第二页标签*******************/
 #second_tab {
@@ -101,6 +108,13 @@
 	width: 100%;
 	word-wrap:break-word; 
 	word-break:break-all; 
+}
+#second_tab .answer {
+	padding: 1px 6px;
+}
+#second_tab .answer_detail{
+	display: none;
+	font-size: 14px;
 }
 
 
