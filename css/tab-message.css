@@ -1,0 +1,106 @@
+/**************侧滑菜单*******************/
+.mui-off-canvas-left {
+	background: #DDDDDD;
+	width: 50%;
+}
+#sideBar #sideBar_title {
+	width: 100%;
+	height: 45px;
+	text-align: center;
+	padding-top: 12px;
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	color: #007AFF;
+}
+#sideBar #sideBar_list {
+
+}
+#sideBar_list .mui-table-view-cell{
+	height: 60px;
+}
+#sideBar_list .mui-navigate-right{
+	margin: auto;
+}
+#sideBar_list .mui-table-view-cell .mui-active{
+	background-color: #007AFF;
+}
+
+/************主页框架**************/
+
+
+/**************主页头部****************/
+#head{
+	/*background: #de2327;*/
+}
+#head #head_title {
+	font-size: 22px;
+	font-weight: bold;
+	color: #007AFF;
+}
+
+/*****************正文内容*****************/
+
+/*******************选项卡结构***************/
+
+/*****************选项卡选择按钮*****************/
+#tab_options {
+
+}
+#tab_options ul {
+	padding: 0px;
+	margin: 0px;
+}
+#tab_options li{
+	float: left;
+	list-style: none;
+	margin-left: 2px;
+	position: relative;
+}
+#tab_options li button {
+	padding: 10px 62px;
+}
+
+/******************选项卡内容****************/
+#tab_content {
+	padding-top: 45px;
+}
+
+/*****************第一页标签******************/
+#first_tab .mui-ellipsis{
+	font-size: 16px;
+	line-height: 30px;
+	white-space:normal;	/*取消p标签内不换行*/
+}
+#first_tab .time {
+	font-size: 12px;
+	float: right;
+	height: 20px;
+}
+#first_tab .mui-media-body .mui-ellipsis{
+	width: 100%;
+	word-wrap:break-word; 
+	word-break:break-all; 
+}
+
+/**************第二页标签*******************/
+#second_tab {
+	display: none;
+}
+#second_tab .mui-ellipsis{
+	font-size: 16px;
+	line-height: 30px;
+	white-space:normal;	/*取消p标签内不换行*/
+}
+#second_tab .time {
+	font-size: 12px;
+	float: right;
+	height: 20px;
+}
+#second_tab .mui-media-body .mui-ellipsis{
+	width: 100%;
+	word-wrap:break-word; 
+	word-break:break-all; 
+}
+
+
