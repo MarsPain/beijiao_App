@@ -50,16 +50,20 @@
 	color: #007AFF;
 	
 }
-#nav_left_wrap #nav_left {
-	line-height: 30px;
+#nav_left {
 	text-align: center;
 	font-size: 18px;
-	padding: 5px 0px 0px 0px;
+	height: 35px;
 }
-#nav_left_wrap #nav_left #second_nav_left {
-	line-height: 15px;
-	font-size: 14px;
-	display: none;
+#openPopover {
+	line-height: 2px;
+}
+#popover {
+	width: 200px;
+}
+#popover li{
+	text-align: center;
+	width: 180px;
 }
 
 /*********搜索框**********/

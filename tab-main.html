@@ -70,15 +70,16 @@
 			<!--导航栏：左侧是区域选择的下拉菜单，右侧是搜索框-->
 			<div id="nav_wrap">
 				<div id="nav_left_wrap">
-					<ul class="mui-table-view">
-						<li id="nav_left" class="mui-table-view-cell">区域选择
-							<ul id="second_nav_left" class="mui-table-view">
-							    <li class="mui-table-view-cell">Item 1</li>
-							    <li class="mui-table-view-cell">Item 1</li>
-							    <li class="mui-table-view-cell">Item 1</li>
-							</ul>
-						</li>
-					</ul>
+					<div id="nav_left">
+						<a href="#popover" id="openPopover" class="mui-btn mui-btn-primary mui-btn-block">打开弹出菜单</a>
+					</div>
+					<div id="popover" class="mui-popover">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell"><a href="#">国家政策</a></li>
+							<li class="mui-table-view-cell"><a href="#">市级政策</a></li>
+							<li class="mui-table-view-cell"><a href="#">地方政策</a></li>
+						</ul>
+					</div>
 				</div>
 				
 				<div id="search" class="mui-content">
