@@ -15,6 +15,13 @@
     <script type="text/javascript" src="js/tab-main.js"></script>
 </head>
 <body>
+	<script type="text/javascript">
+        mui('body').on('tap','a',function(){
+		    window.top.location.href=this.href;
+		});
+
+    </script>
+	
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->
@@ -107,7 +114,7 @@
 			<div id="policy_list">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell mui-media">
-					    <a href="javascript:;">
+					    <a class="policy" href="content.html">
 					        <div class="mui-media-body">
 					        	国务院
 					            <p class='mui-ellipsis'>李克强对全国小微企业金融服务电视电话会议作出重要批示</p>
