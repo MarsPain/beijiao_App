@@ -15,6 +15,15 @@
     <script type="text/javascript" src="js/tab-personal.js"></script>
 </head>
 <body>
+	
+	<script type="text/javascript">
+		mui.init();
+		
+		mui('body').on('tap','a',function(){
+			window.top.location.href=this.href;
+		});
+	</script>
+	
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->
@@ -87,7 +96,7 @@
 					        <a class="mui-navigate-right">密码修改</a>
 					    </li>
 					    <li class="mui-table-view-cell">
-					        <a class="mui-navigate-right">我要咨询</a>
+					        <a class="mui-navigate-right" href="consult.html">我要咨询</a>
 					    </li>
 					</ul>
 				</div>
