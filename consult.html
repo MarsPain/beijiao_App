@@ -36,17 +36,25 @@
 
    				<div id="consult">
    					<form class="mui-input-group">
-					    <div class="mui-input-row">
-					        <label>用户名</label>
-					    	<input type="text" class="mui-input-clear" placeholder="请输入用户名">
+					    <div class="mui-input-row consult_information">
+					        <label>咨询标题</label>
+					    	<input type="text" class="mui-input-clear" placeholder="请输入咨询标题">
 					    </div>
-					    <div class="mui-input-row">
-					        <label>密码</label>
-					        <input type="password" class="mui-input-clear" placeholder="请输入密码">
+					    <div class="mui-input-row consult_information">
+					        <label>手机号码</label>
+					        <input type="number" class="mui-input-clear" placeholder="请输入手机号码">
+					    </div>
+					    <div class="mui-input-row consult_information">
+					        <label>电子邮箱</label>
+					        <input type="email" class="mui-input-clear" placeholder="请输入电子邮箱">
+					    </div>
+					    <div id="consult_content">
+					        <label>咨询内容</label>
+					        <textarea type="text" placeholder="请输入详细咨询内容"></textarea>
 					    </div>
 					    <div class="mui-button-row">
-					        <button type="button" class="mui-btn mui-btn-primary" >确认</button>
-					        <button type="button" class="mui-btn mui-btn-danger" >取消</button>
+					        <button id="ensure" type="button" class="mui-btn mui-btn-primary" >确认</button>
+					        <a href="tab-personal.html"><button id="cansel" type="button" class="mui-btn mui-btn-danger" >取消</button></a>
 					    </div>
 					</form>
    				</div>
