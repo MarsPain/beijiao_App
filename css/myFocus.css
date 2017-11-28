@@ -1,0 +1,36 @@
+/**************主页头部****************/
+#head{
+	/*background: #de2327;*/
+}
+#head #head_title {
+	font-size: 22px;
+	font-weight: bold;
+	color: #007AFF;
+}
+
+/***************正文部分***************/
+
+/*************行业选择列表部分************/
+#focus_list .mui-input-row {
+	line-height: 30px;
+	height: 60px;
+	padding-top: 10px;
+}
+#focus_list .mui-input-row label {
+	color: #007AFF;
+}
+
+/****************按钮样式部分****************/
+#focus_list #ensure {
+	padding: 3px 20px;
+	font-size: 20px;
+	float: left;
+	margin-left:20px ;
+}
+#focus_list #cansel {
+	padding: 3px 20px;
+	font-size: 20px;
+	float: right;
+	margin-right:20px ;
+}
+
