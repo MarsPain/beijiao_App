@@ -24,7 +24,7 @@ window.onload = function(){
 	});
 	
 //	第三页选项卡中回复的上卷下拉效果
-	$(".answer").click(function(){
+	mui('body').on('tap','.answer',function(){
 		if($(this).text() == "查看回复"){
 			$(this).text("关闭回复");
 			$(this).nextAll().slideDown("fast", function(){
@@ -36,5 +36,6 @@ window.onload = function(){
 	
 			});
 		}
-	})
+	});
+
 }
