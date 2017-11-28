@@ -5,19 +5,19 @@ window.onload = function(){
 	});
 	
 //	选项卡切换效果
-	$("#first_tab_option").click(function() {
+	mui('body').on('tap','#first_tab_option',function() {
 	  $('#second_tab').hide();
 	  $('#third_tab').hide();
 	  $('#first_tab').show();
 	});
 	
-	$("#second_tab_option").click(function() {
+	mui('body').on('tap','#second_tab_option',function() {
 	  $('#first_tab').hide();
 	  $('#third_tab').hide();
 	  $('#second_tab').show();
 	});
-	
-	$("#third_tab_option").click(function() {
+
+	mui('body').on('tap','#third_tab_option',function() {
 	  $('#first_tab').hide();
 	  $('#second_tab').hide();
 	  $('#third_tab').show();
