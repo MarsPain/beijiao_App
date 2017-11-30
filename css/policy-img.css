@@ -1,0 +1,37 @@
+/**************主页头部****************/
+#head{
+	/*background: #de2327;*/
+}
+#head #head_title {
+	font-size: 22px;
+	font-weight: bold;
+	color: #007AFF;
+}
+
+/*正文部分*/
+
+/*正文标题部分*/
+#content_title .mui-ellipsis {
+	font-size: 20px;
+	line-height: 30px;
+	white-space:normal;	/*取消p标签内不换行*/
+	font-weight: bold;
+	color: #000000;
+}
+#content_title .institution {
+	font-size: 14px;
+	float: left;
+	height: 20px;
+	color: #007AFF;
+}
+#content_title .time {
+	font-size: 14px;
+	float: right;
+	height: 20px;
+	color: #007AFF;
+}
+
+/*正文内容*/
+#content p{
+	-webkit-user-select:all;	//使其可以被复制
+}
