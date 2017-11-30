@@ -32,6 +32,10 @@
 }
 
 /*正文内容*/
+#content img {
+	height: 200px;
+	width: 100%;
+}
 #content p{
 	-webkit-user-select:all;	//使其可以被复制
 }
