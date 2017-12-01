@@ -19,8 +19,8 @@
     	
     	<!-- 头部（从左到右：返回按钮、标题）-->
 	    <header id="head" class="mui-bar mui-bar-nav">
-	      	<a id="back" href="tab-personal.html"><button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button></a>
-	      	<h1 id="head_title" class="mui-title">登录</h1>
+	      	<a id="back" href="login.html"><button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button></a>
+	      	<h1 id="head_title" class="mui-title">注册</h1>
 	    </header>
 	    
 	    <!--正文部分-->
@@ -35,26 +35,15 @@
 					<label>密码</label>
 					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 				</div>
-			</form>
-			
-			<form id="login_automatic" class="mui-input-group">
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell">
-						自动登录
-						<div id="autoLogin" class="mui-switch">
-							<div class="mui-switch-handle"></div>
-						</div>
-					</li>
-				</ul>
+				<div class="mui-input-row">
+					<label>确认密码</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+				</div>	
+				
 			</form>
 			
 			<div id="login_button" class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
-				<div class="link-area">
-					<a href="register.html" id='reg'>注册账号</a>
-					<span class="spliter">|</span>
-					<a id='forgetPassword'>忘记密码</a>
-				</div>
+				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">注册</button>
 			</div>
 			
 		</div>
