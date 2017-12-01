@@ -15,7 +15,7 @@
 			mui.init()
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
-    	<script type="text/javascript" src="js/login.js"></script>
+    	<script type="text/javascript" src="js/register.js"></script>
     	
     	<!-- 头部（从左到右：返回按钮、标题）-->
 	    <header id="head" class="mui-bar mui-bar-nav">
@@ -38,7 +38,25 @@
 				<div class="mui-input-row">
 					<label>确认密码</label>
 					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
-				</div>	
+				</div>
+				<div style="line-height: 40px;">
+					<ul class="mui-table-view"> 
+				        <li id="industry_wrapper" class="mui-table-view-cell mui-collapse">
+				            <a id="industry_select" class="mui-navigate-right" href="#">请选择您关注的行业</a>
+				            <div class="mui-collapse-content">
+				                <p class="industry">食品酒水</p>
+				                <p class="industry">机械化工</p>
+				                <p class="industry">交通汽车</p>
+				                <p class="industry">房产建材</p>
+				                <p class="industry">服装纺织</p>
+				                <p class="industry">IT互联网</p>
+				                <p class="industry">文化传媒</p>
+				                <p class="industry">医疗保健</p>
+				            </div>
+				        </li>
+				    </ul>
+				</div>
+		
 				
 			</form>
 			
