@@ -1,0 +1,30 @@
+/**************主页头部****************/
+#head{
+	/*background: #de2327;*/
+}
+#head #head_title {
+	font-size: 22px;
+	font-weight: bold;
+	color: #007AFF;
+}
+
+
+/**************正文部分******************/
+
+/***************登录表单部分****************/
+#login-form .mui-input-row {
+	line-height: 30px;
+	height: 60px;
+	padding-top: 10px;
+}
+#login_automatic ul {
+	padding-top: 8px;
+	height: 60px;
+}
+#login_button #login {
+	margin-top: 20px;
+}
+#login_button .link-area {
+	margin-top: 20px;
+	text-align: center;
+}
