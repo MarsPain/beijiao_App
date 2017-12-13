@@ -11,4 +11,9 @@ window.onload = function(){
 			interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
 	});
 	
+	//取值示范代码
+	mui.get("http://www.imooc.com/data/sport.json",function(data) {
+        $(".policy_institution").append("国务院");
+        $(".policy_title").html(data[3].name)
+    }, "json");
 }
