@@ -58,7 +58,8 @@
 	position: relative;
 }
 #tab_options li button {
-	padding: 10px 31px;
+	padding: 10px 34px;
+	width: 32%;
 }
 
 /******************选项卡内容****************/
