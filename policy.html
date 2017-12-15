@@ -17,7 +17,7 @@
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/policy.js"></script>
-		<script>                  
+		<script type="text/javascript">                  
 			var a = location.href;
 			var getUrlParam = function(a){
 	            var reg = new RegExp("(^|&)"+ a +"=([^&]*)(&|$)");
@@ -37,8 +37,12 @@
 		    		//contentType:"application/json;charset=utf-8",
 		    		success : function(data,status){
 		    			alert("完成");
-							var policy = "<p style='font-size: 16px; color: #555555;'>"+data.polContent+"</p>"     
-							$("#content").append(policy);
+		    			var detail= "<p class='mui-ellipsis'>"+data.polTitle+"</p>"+
+					        	    '<span class="institution">'+data.polSource+"</span>"+
+					        	     '<span class="time">'+data.polTime+"</span>"
+					    $("#content_title").append(detail);
+						var policy = "<p style='font-size: 16px; color: #555555;'>"+data.polContent+"</p>"     
+						$("#content").append(policy);
 		    		},
 		    		error : function(data,status,e){
 		    			alert("失败");
@@ -66,9 +70,9 @@
    					<ul class="mui-table-view">
 						<li class="mui-table-view-cell mui-media">
 					        <div id="content_title" class="mui-media-body">
-					        	<p class='mui-ellipsis'>李克强对全国小微企业金融服务电视电话会议作出重要批示</p>
+					        	<!--<p class='mui-ellipsis'>李克强对全国小微企业金融服务电视电话会议作出重要批示</p>
 					        	<span class="institution">国务院</span>
-					        	<span class="time">2017-11-15</span>
+					        	<span class="time">2017-11-15</span>-->
 					        </div>
 						</li>
 					</ul>

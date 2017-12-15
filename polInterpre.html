@@ -7,9 +7,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/policy.css" rel="stylesheet" />
-	</head>
-
-	<body>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
@@ -21,6 +18,42 @@
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/policy.js"></script>
 		
+		<script type="text/javascript">                  
+			var a = location.href;
+			var getUrlParam = function(a){
+	            var reg = new RegExp("(^|&)"+ a +"=([^&]*)(&|$)");
+	            var r = window.location.search.substr(1).match(reg);
+	            if (r!=null) 
+	            	return unescape(r[2]); 
+	            return null;
+             }; 
+	        var polInterpreId = {"polInterpreId":getUrlParam('polInterpreId')};
+	        $(document).ready(function(){
+				 $.ajax({
+				    type:"get",
+		    		url:"http://192.168.3.78:8080/beijiao/polInterpre/toAppPolInterpre",
+		    		data:polInterpreId,
+		    		dataType : 'json', // 数据类型配置成json
+		    		async:true,
+		    		//contentType:"application/json;charset=utf-8",
+		    		success : function(data,status){
+		    			//alert(polInterpreId);
+		    			var detail= "<p class='mui-ellipsis'>"+data.polInterpreTitle+"</p>"+
+					        	    '<span class="institution">'+data.polInterpreSource+"</span>"+
+					        	     '<span class="time">'+data.polInterpreTime+"</span>"
+					    $("#content_title").append(detail);
+						var polInterpreContent = "<p style='font-size: 16px; color: #555555;'>"+data.polInterpreContent+"</p>"    
+						$("#content").append(polInterpreContent);
+		    		},
+		    		error : function(data,status,e){
+		    			alert("失败");
+		    		}
+				});
+			})
+		</script>
+	</head>
+
+	<body>
 		<!-- 主页面容器 -->
 		<div class="mui-inner-wrap">
 		    <!-- 头部（从左到右：侧滑按钮、标题、搜索框）-->
@@ -38,9 +71,9 @@
    					<ul class="mui-table-view">
 						<li class="mui-table-view-cell mui-media">
 					        <div id="content_title" class="mui-media-body">
-					        	<p class='mui-ellipsis'>标题</p>
+					        	<!--<p class='mui-ellipsis'>标题</p>
 					        	<span class="institution">发布机构</span>
-					        	<span class="time">2017-11-15</span>
+					        	<span class="time">2017-11-15</span>-->
 					        </div>
 						</li>
 					</ul>
@@ -51,7 +84,7 @@
    					<ul class="mui-table-view">
 						<li class="mui-table-view-cell mui-media">
 					        <div id="content" class="mui-media-body" >
-					        	<p style="font-size: 16px; color: #555555;">详细内容</p>
+					        	<!--<p id="content" style="font-size: 16px; color: #555555;">详细内容</p>-->
 					        </div>
 						</li>
 					</ul>
