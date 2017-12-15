@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>政策详细内容</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/policy.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			mui('body').on('tap','#back',function(){
+				window.top.location.href=this.href;
+			});
+		</script>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    	<script type="text/javascript" src="js/policy.js"></script>
+		
+		<!-- 主页面容器 -->
+		<div class="mui-inner-wrap">
+		    <!-- 头部（从左到右：侧滑按钮、标题、搜索框）-->
+		    <header id="head" class="mui-bar mui-bar-nav">
+		      	<a id="back" href="tab-classification.html"><button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button></a>
+		      	<h1 id="head_title" class="mui-title">媒体聚焦</h1>
+		    </header>
+
+			<!--正文部分-->
+		    <div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+   				
+   				<!--正文标题-->
+   				<div>
+   					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+					        <div id="content_title" class="mui-media-body">
+					        	<p class='mui-ellipsis'>标题</p>
+					        	<span class="institution">发布媒体</span>
+					        	<span class="time">2017-11-15</span>
+					        </div>
+						</li>
+					</ul>
+   				</div>
+   				
+   				<!--正文内容-->
+   				<div>
+   					<ul class="mui-table-view">
+						<li class="mui-table-view-cell mui-media">
+					        <div id="content" class="mui-media-body" >
+					        	<p style="font-size: 16px; color: #555555;">详细内容</p>
+					        </div>
+						</li>
+					</ul>
+   				</div>
+   				
+   				
+			</div>
+		   </div>
+		</div>
+
+	</body>
+
+</html>

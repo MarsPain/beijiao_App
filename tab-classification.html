@@ -15,6 +15,13 @@
     <script type="text/javascript" src="js/tab-classification.js"></script>
 </head>
 <body>
+	<script type="text/javascript">
+        mui('body').on('tap','a',function(){
+		    window.top.location.href=this.href;
+		});
+
+    </script>
+	
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->
@@ -82,11 +89,11 @@
    					
    					<!--选项卡内容-->
    					<div id="tab_content">
-   						<!--第一页选项卡-->
+   						<!--第一页选项卡：政策解读-->
    						<div id="first_tab">
    							<ul class="mui-table-view">
    								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
+								    <a href="polInterpre.html">
 								        <div class="mui-media-body">
 								        	中国工商报
 								            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
@@ -95,7 +102,7 @@
 								    </a>
 								</li>
 								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
+								    <a href="polInterpre.html">
 								        <div class="mui-media-body">
 								        	中国工商报
 								            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
@@ -106,11 +113,11 @@
    							</ul>
    						</div>
    						
-   						<!--第二页选项卡-->
+   						<!--第二页选项卡：媒体聚焦-->
    						<div id="second_tab">
    							<ul class="mui-table-view">
    								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
+								    <a href="media.html">
 								        <div class="mui-media-body">
 								        	国家工商总局
 								            <p class='mui-ellipsis'>国家工商总局就2017年前三季度市场环境形势情况举行发布会</p>
@@ -119,7 +126,7 @@
 								    </a>
 								</li>
 								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
+								    <a href="media.html">
 								        <div class="mui-media-body">
 								        	国家工商总局
 								            <p class='mui-ellipsis'>国家工商总局就2017年前三季度市场环境形势情况举行发布会</p>
@@ -130,7 +137,7 @@
    							</ul>
    						</div>
    						
-   						<!--第三页选项卡-->
+   						<!--第三页选项卡：咨询答疑-->
    						<div id="third_tab">
    							<ul class="mui-table-view">
    								<li id="test" class="mui-table-view-cell mui-media">
