@@ -13,15 +13,85 @@
     </script>
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     <script type="text/javascript" src="js/tab-classification.js"></script>
+    <script text/javascript>
+	    $(document).ready(function(){
+			 $.ajax({
+			    type:"get",
+	    		url:"http://192.168.3.78:8080/beijiao/polInterpre/allPolInterpreApp",
+	    		data:{},
+	    		dataType : 'json', // 数据类型配置成json
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+	    			//alert("完成");
+					for (var i = 0; i < data.length; i++) {
+						var polInterpre = "<li id='test class='mui-table-view-cell mui-media'>"+
+								    "<a href=''>"+
+								       " <div class='mui-media-body'>"+
+								        	data[i].polInterpreSource
+								            + "<p class='mui-ellipsis'>"+data[i].polInterpreTitle+"</p>"+
+								        	"<span class='time'>"+data[i].polInterpreTime+"</span></div> </a></li>"
+						$("#PolInterpre").append(polInterpre);
+					}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    		}
+			});
+			
+			$.ajax({
+			    type:"get",
+	    		url:"http://192.168.3.78:8080/beijiao/news/appNews_app",
+	    		data:{},
+	    		dataType : 'json', // 数据类型配置成json
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+	    			//alert("完成");
+					for (var i = 0; i < data.length; i++) {
+						var media = "<li id='test class='mui-table-view-cell mui-media'>"+
+								    "<a href=''>"+
+								       " <div class='mui-media-body' >"+
+								        	data[i].newsSource
+								            + "<p class='mui-ellipsis'>"+data[i].newsTitle+"</p>"+
+								        	"<span class='time'>"+data[i].newsTime+"</span></div> </a></li>"
+						$("#media").append(media);
+					}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    		}
+			});
+			
+			$.ajax({
+			    type:"get",
+	    		url:"http://192.168.3.78:8080/beijiao/consult/alldiscuss_app",
+	    		data:{},
+	    		dataType : 'json', // 数据类型配置成json
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+	    			//alert("完成");
+					for (var i = 0; i < data.length; i++) {
+						var consult = "<li id='test' class='mui-table-view-cell mui-media'>"+
+								    "<a href=javascript:;>"+
+								        '<div class="mui-media-body">'+
+								            "<p class='mui-ellipsis'>"+data[i].disTitle+"</p>"+
+								        	'<span class="time">'+data[i].disTime+'</span>'+
+								        	'<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>'+
+								        	'<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>'+
+											"<p class='mui-ellipsis answer_detail'>"+data[i].reply+"</p></div></a></li>"			
+						$("#consult").append(consult);
+					}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    		}
+			});
+		})
+	</script>
 </head>
 <body>
-	<script type="text/javascript">
-        mui('body').on('tap','a',function(){
-		    window.top.location.href=this.href;
-		});
-
-    </script>
-	
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->
@@ -80,7 +150,7 @@
    					<div id="tab_options">
    						<ul>
 							<li>
-	   							<button id="first_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">政策解读</button>
+	   							<button id="first_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined" >政策解读</button>
 	   							<button id="second_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">媒体聚焦</button>
 	   							<button id="third_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">咨询答疑</button>
    							</li>
@@ -89,61 +159,42 @@
    					
    					<!--选项卡内容-->
    					<div id="tab_content">
-   						<!--第一页选项卡：政策解读-->
+   						<!--第一页选项卡-->
    						<div id="first_tab">
-   							<ul class="mui-table-view">
-   								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="polInterpre.html">
-								        <div class="mui-media-body">
+   							<ul class="mui-table-view" id="PolInterpre">
+   								<!--<li id="test" class="mui-table-view-cell mui-media" >
+								    <a href="javascript:;">
+								        <div class="mui-media-body" >
 								        	中国工商报
-								            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
+								            <p class='mui-ellipsis' >总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
 								        	<span class="time">2017-11-15</span>
 								        </div>
 								    </a>
-								</li>
-								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="polInterpre.html">
-								        <div class="mui-media-body">
-								        	中国工商报
-								            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
-								        	<span class="time">2017-11-15</span>
-								        </div>
-								    </a>
-								</li>
+								</li>-->
    							</ul>
    						</div>
    						
-   						<!--第二页选项卡：媒体聚焦-->
+   						<!--第二页选项卡-->
    						<div id="second_tab">
-   							<ul class="mui-table-view">
-   								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="media.html">
-								        <div class="mui-media-body">
-								        	国家工商总局
-								            <p class='mui-ellipsis'>国家工商总局就2017年前三季度市场环境形势情况举行发布会</p>
-								        	<span class="time">2017-11-15</span>
-								        </div>
-								    </a>
-								</li>
-								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="media.html">
-								        <div class="mui-media-body">
-								        	国家工商总局
-								            <p class='mui-ellipsis'>国家工商总局就2017年前三季度市场环境形势情况举行发布会</p>
-								        	<span class="time">2017-11-15</span>
-								        </div>
-								    </a>
-								</li>
-   							</ul>
-   						</div>
-   						
-   						<!--第三页选项卡：咨询答疑-->
-   						<div id="third_tab">
-   							<ul class="mui-table-view">
-   								<li id="test" class="mui-table-view-cell mui-media">
+   							<ul class="mui-table-view" id="media">
+   								<!--<li id="test" class="mui-table-view-cell mui-media">
 								    <a href="javascript:;">
 								        <div class="mui-media-body">
-								        	五证合一
+								        	国家工商总局
+								            <p class='mui-ellipsis'>国家工商总局就2017年前三季度市场环境形势情况举行发布会</p>
+								        	<span class="time">2017-11-15</span>
+								        </div>
+								    </a>
+								</li>-->
+   							</ul>
+   						</div>
+   						
+   						<!--第三页选项卡-->
+   						<div id="third_tab">
+   							<ul class="mui-table-view" id="consult">
+   								<!--<li id="test" class="mui-table-view-cell mui-media">
+								    <a href="javascript:;">
+								        <div class="mui-media-body">
 								            <p class='mui-ellipsis'>五证合一是哪五证</p>
 								        	<span class="time">2017-11-15</span>
 								        	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>
@@ -151,19 +202,7 @@
 											<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
 								        </div>
 								    </a>
-								</li>
-								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
-								        <div class="mui-media-body">
-								        	五证合一
-								            <p class='mui-ellipsis'>五证合一是哪五证</p>
-								        	<span class="time">2017-11-15</span>
-								        	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>
-								        	<div style="border:1px dashed #ebebeb; border-style:dotted;"></div>
-											<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
-								        </div>
-								    </a>
-								</li>
+								</li>-->
    							</ul>
    						</div>
    					</div>

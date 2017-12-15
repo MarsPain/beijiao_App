@@ -13,6 +13,34 @@
     </script>
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     <script type="text/javascript" src="js/tab-main.js"></script>
+    <script text/javascript>
+	    $(document).ready(function(){
+			 $.ajax({
+			    type:"get",
+	    		url:"http://192.168.3.78:8080/beijiao/policy/app_allPolicy",
+	    		data:{},
+	    		dataType : 'json', // 数据类型配置成json
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+	    			//alert("完成");
+					for (var i = 0; i < data.length; i++) {
+						var policy = "<li class='mui-table-view-cell mui-media'>" +
+						        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
+								        	"<div class='mui-media-body'>"+
+									        	data[i].polSource +
+									        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
+									        "<span class='time'>"+data[i].polTime+
+									        "</span></div></a></li>"
+						$(".mui--view").append(policy);
+					}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    		}
+			});
+		})
+	</script>
 </head>
 <body>
 	<script type="text/javascript">
@@ -95,7 +123,7 @@
 				
 				<div id="search" class="mui-content">
 				    <div class="mui-input-row mui-search">
-					    <input type="search" class="mui-input-clear" placeholder="">
+					    <input type="search" class="mui-input-clear" placeholder="查寻政策">
 					</div>
 			    </div>
 			</div>
@@ -110,26 +138,26 @@
 				    <div class="mui-slider-item"><a href="policy-img.html"><img src="images/01.jpg" /></a></div>
 				    <div class="mui-slider-item"><a href="policy-img.html"><img src="images/02.jpg" /></a></div>
 				    <!--支持循环，需要重复图片节点-->
-				    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="1.jpg" /></a></div>
+				    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/01.jpg" /></a></div>
 			    </div>
 			</div>
 	
 			<!--消息列表-->
 			<div id="policy_list">
-				<ul class="mui-table-view">
-					<li class="mui-table-view-cell mui-media">
+				<ul class="mui--view">
+					<!--<li class="mui-table-view-cell mui-media">
 					    <a class="policy" href="policy.html">
 					        <div class="mui-media-body">
-					        	<div class="policy_institution"></div>
+					        	国务院
 					            <p class='mui-ellipsis'>李克强对全国小微企业金融服务电视电话会议作出重要批示</p>
 					        	<span class="time">2017-11-15</span>
 					        </div>
 					    </a>
-					</li>
-					<li class="mui-table-view-cell mui-media">
+					</li>-->
+					<!--<li class="mui-table-view-cell mui-media">
 					    <a href="javascript:;">
 					        <div class="mui-media-body">
-					        	<div class="policy_institution"></div>
+								国务院
 					            <p class='mui-ellipsis'>《习近平谈治国理政》第二卷中英文版出版发行</p>
 					            <span class="time">2017-11-15</span>
 					        </div>
@@ -138,7 +166,7 @@
 					<li class="mui-table-view-cell mui-media">
 					    <a href="javascript:;">
 					        <div class="mui-media-body">
-								<div class="policy_institution"></div>
+								国务院
 					            <p class='mui-ellipsis'>工商总局召开贯彻落实“证照分离”改革试点工作媒体通气会</p>
 					            <span class="time">2017-11-15</span>
 					        </div>
@@ -147,21 +175,12 @@
 					<li class="mui-table-view-cell mui-media">
 					    <a href="javascript:;">
 					        <div class="mui-media-body">
-								<div class="policy_institution"></div>
+								国务院
 					            <p class='mui-ellipsis'>工商总局召开贯彻落实“证照分离”改革试点工作媒体通气会</p>
 					            <span class="time">2017-11-15</span>
 					        </div>
 					    </a>
-					</li>
-					<li class="mui-table-view-cell mui-media">
-					    <a href="javascript:;">
-					        <div class="mui-media-body">
-								<div class="policy_institution"></div>
-					            <p class='mui-ellipsis policy_title'></p>
-					            <span class="time">2017-11-15</span>
-					        </div>
-					    </a>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 			</div>

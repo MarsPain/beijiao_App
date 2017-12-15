@@ -7,9 +7,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/consult.css" rel="stylesheet" />
-	</head>
-
-	<body>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
@@ -21,7 +18,33 @@
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/consult.js"></script>
-		
+    	<script type="text/javascript">
+    		function addConsult() {
+    			var disTitle = $("#disTitle").val();
+    			var disContent = $("#disContent").val();
+    			var email = $("#email").val();
+    			var consult={"disTitle":disTitle,"disContent":disContent,"email":email};
+    			$.ajax({
+    				type:"post",
+    				url:"http://192.168.3.78:8080/beijiao/consult/addDis_app",
+    				data:consult,
+    				dataType:"json"
+    				async:true,
+    				success:function(data){
+    					if(data == "success"){
+    						alert(咨询成功);
+    						window.location.href="tab-message.html";
+    					},
+    				error:function(data,status,e){
+    					alert("咨询失败");
+    				}
+    				}
+    			});
+    		}
+    	</script>
+	</head>
+
+	<body>
 		<!-- 主页面容器 -->
 		<div class="mui-inner-wrap">
 		    <!-- 头部（从左到右：侧滑按钮、标题、搜索框）-->
@@ -38,22 +61,18 @@
    					<form class="mui-input-group">
 					    <div class="mui-input-row consult_information">
 					        <label>咨询标题</label>
-					    	<input type="text" class="mui-input-clear" placeholder="请输入咨询标题">
-					    </div>
-					    <div class="mui-input-row consult_information">
-					        <label>手机号码</label>
-					        <input type="number" class="mui-input-clear" placeholder="请输入手机号码">
+					    	<input type="text" id="disTitle" class="mui-input-clear" placeholder="请输入咨询标题">
 					    </div>
 					    <div class="mui-input-row consult_information">
 					        <label>电子邮箱</label>
-					        <input type="email" class="mui-input-clear" placeholder="请输入电子邮箱">
+					        <input type="email" id="email" class="mui-input-clear" placeholder="请输入电子邮箱">
 					    </div>
 					    <div id="consult_content">
 					        <label>咨询内容</label>
-					        <textarea type="text" placeholder="请输入详细咨询内容"></textarea>
+					        <textarea type="text" id="disContent" placeholder="请输入详细咨询内容"></textarea>
 					    </div>
 					    <div class="mui-button-row">
-					        <button id="ensure" type="button" class="mui-btn mui-btn-primary" >确认</button>
+					        <button id="ensure" type="button" class="mui-btn mui-btn-primary" onclick="addConsult()">确认</button>
 					        <a href="tab-personal.html"><button id="cansel" type="button" class="mui-btn mui-btn-danger" >取消</button></a>
 					    </div>
 					</form>

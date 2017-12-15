@@ -13,6 +13,59 @@
     </script>
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     <script type="text/javascript" src="js/tab-message.js"></script>
+    <script type="text/javascript">
+    	  $(document).ready(){
+    	  	 $.ajax({
+			    type:"get",
+	    		url:"http://192.168.3.78:8080/beijiao/policy/app_allPolicy",
+	    		data:{},
+	    		dataType : 'json', // 数据类型配置成json
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+	    			//alert("完成");
+					for (var i = 0; i < data.length; i++) {
+						var policy = "<li class='mui-table-view-cell mui-media'>" +
+						        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
+								        	"<div class='mui-media-body'>"+
+									        	data[i].polSource +
+									        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
+									        "<span class='time'>"+data[i].polTime+
+									        "</span></div></a></li>"
+						$("#my_policy").append(policy);
+					}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    		}
+			});
+    	  	$.ajax({
+			    type:"get",
+	    		url:"http://192.168.3.78:8080/beijiao/consult/userdiscuss_app",
+	    		data:{},
+	    		dataType : 'json', // 数据类型配置成json
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+	    			//alert("完成");
+					for (var i = 0; i < data.length; i++) {
+						var consult = "<li id='test' class='mui-table-view-cell mui-media'>"+
+								    "<a href=javascript:;>"+
+								        '<div class="mui-media-body">'+
+								            "<p class='mui-ellipsis'>"+data[i].disTitle+"</p>"+
+								        	'<span class="time">'+data[i].disTime+'</span>'+
+								        	'<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>'+
+								        	'<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>'+
+											"<p class='mui-ellipsis answer_detail'>"+data[i].reply+"</p></div></a></li>"			
+						$("#consult").append(consult);
+					}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    		}
+			});
+    	  }
+    </script>
 </head>
 <body>
 	<!--带侧滑菜单的框架-->
@@ -87,8 +140,8 @@
    					<div id="tab_content">
    						<!--第一页选项卡-->
    						<div id="first_tab">
-   							<ul class="mui-table-view">
-   								<li id="test" class="mui-table-view-cell mui-media">
+   							<ul class="mui-table-view" id="my_policy">
+   								<!--<li id="test" class="mui-table-view-cell mui-media">
 								    <a href="javascript:;">
 								        <div class="mui-media-body">
 								        	中国工商报
@@ -105,14 +158,14 @@
 								        	<span class="time">2017-11-15</span>
 								        </div>
 								    </a>
-								</li>
+								</li>-->
    							</ul>
    						</div>
    						
    						<!--第二页选项卡-->
    						<div id="second_tab">
-   							<ul class="mui-table-view">
-   								<li id="test" class="mui-table-view-cell mui-media">
+   							<ul class="mui-table-view" id="consult">
+   								<!--<li id="test" class="mui-table-view-cell mui-media">
 								    <a href="javascript:;">
 								        <div class="mui-media-body">
 								        	五证合一
@@ -135,7 +188,7 @@
 											<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
 								        </div>
 								    </a>
-								</li>
+								</li>-->
    							</ul>
    						</div>
    					</div>

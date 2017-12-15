@@ -4,19 +4,53 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/login.css" rel="stylesheet" />
-	</head>
-
-	<body>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     	<script type="text/javascript" src="js/login.js"></script>
-    	
+	    <script text/javascript>
+	    function login() {
+	    	var username = $('#username').val();
+	    	var password = $('#password').val();
+	    	var user = {"username":username,"password":password};
+	    	$.ajax({
+	    		type:"post",
+	    		url:"http://192.168.3.78:8080/beijiao/app/appLogin",
+	    		data:user,
+	    		dataType : 'json', // 数据类型配置成jsonp
+                //jsonp : "callback", //配置jsonp随机码标签,在服务器代码部分需要用到他来拼接一个json的js对象
+	    		timeout: 15000 ,
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+	    			alert("完成");
+	    			alert(data);
+	    			if(status == 'success'){
+	    				window.location.href = 'tab-personal.html';
+	    			}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    			alert(status+"状态");
+	    			alert(e+"错误");
+	    			if(status == "error"){
+	    				location.href='login.html';
+	    			}
+	    		}
+	    	});
+	    }
+	    </script>
+	
+	</head>
+
+	<body>	
     	<!-- 头部（从左到右：返回按钮、标题）-->
 	    <header id="head" class="mui-bar mui-bar-nav">
 	      	<a id="back" href="tab-personal.html"><button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button></a>
@@ -29,7 +63,7 @@
 			<form id='login-form' class="mui-input-group">
 				<div class="mui-input-row">
 					<label>账号</label>
-					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+					<input id='username' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
 				</div>
 				<div class="mui-input-row">
 					<label>密码</label>
@@ -49,7 +83,7 @@
 			</form>
 			
 			<div id="login_button" class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">登录</button>
+				<button id='login' onclick="login()" class="mui-btn mui-btn-block mui-btn-primary">登录</button>
 				<div class="link-area">
 					<a href="register.html" id='reg'>注册账号</a>
 					<span class="spliter">|</span>
