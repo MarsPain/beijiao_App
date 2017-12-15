@@ -68,6 +68,11 @@
     </script>
 </head>
 <body>
+	<script type="text/javascript">
+        mui('body').on('tap','a',function(){
+		    window.top.location.href=this.href;
+		});
+    </script>
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->

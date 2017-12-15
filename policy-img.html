@@ -17,7 +17,7 @@
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/policy-img.js"></script>
-		<script>                  
+		<script type="text/javascript">                  
 			var a = location.href;
 			var getUrlParam = function(a){
 	            var reg = new RegExp("(^|&)"+ a +"=([^&]*)(&|$)");
@@ -37,6 +37,10 @@
 		    		//contentType:"application/json;charset=utf-8",
 		    		success : function(data,status){
 		    			alert("完成");
+		    			var detail= "<p class='mui-ellipsis'>"+data.picPolTitle+"</p>"+
+					        	    '<span class="institution">'+data.picPolSource+"</span>"+
+					        	     '<span class="time">'+data.picPolTime+"</span>"
+					    $("#content_title").append(detail);
 						$("#content_detail").append(data.picPolContent);
 		    		},
 		    		error : function(data,status,e){
@@ -67,9 +71,9 @@
    					<ul class="mui-table-view">
 						<li class="mui-table-view-cell mui-media">
 					        <div id="content_title" class="mui-media-body">
-					        	<p class='mui-ellipsis'>全国工商和市场监管工作座谈会举行</p>
+					        	<!--<p class='mui-ellipsis'>全国工商和市场监管工作座谈会举行</p>
 					        	<span class="institution">中国工商报</span>
-					        	<span class="time">2017-6-30</span>
+					        	<span class="time">2017-6-30</span>-->
 					        </div>
 						</li>
 					</ul>

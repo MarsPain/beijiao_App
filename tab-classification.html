@@ -1,4 +1,3 @@
-<!-- tab-*.html 举例-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,14 +22,15 @@
 	    		async:true,
 	    		//contentType:"application/json;charset=utf-8",
 	    		success : function(data,status){
-	    			//alert("完成");
+	    			//console.log(data);
 					for (var i = 0; i < data.length; i++) {
-						var polInterpre = "<li id='test class='mui-table-view-cell mui-media'>"+
-								    "<a href=''>"+
-								       " <div class='mui-media-body'>"+
-								        	data[i].polInterpreSource
-								            + "<p class='mui-ellipsis'>"+data[i].polInterpreTitle+"</p>"+
-								        	"<span class='time'>"+data[i].polInterpreTime+"</span></div> </a></li>"
+						var polInterpre = "<li id='test' class='mui-table-view-cell mui-media'>"+
+								    "<a href='polInterpre.html?polInterpreId="+data[i].polInterpreId+"'>"+
+								       "<div class='mui-media-body'>"+
+								        	data[i].polInterpreSource+
+								            "<p class='mui-ellipsis'>"+data[i].polInterpreTitle+"</p>"+
+								        	"<span class='time'>"+data[i].polInterpreTime+
+								        	"</span></div></a></li>"
 						$("#PolInterpre").append(polInterpre);
 					}
 	    		},
@@ -49,11 +49,11 @@
 	    		success : function(data,status){
 	    			//alert("完成");
 					for (var i = 0; i < data.length; i++) {
-						var media = "<li id='test class='mui-table-view-cell mui-media'>"+
-								    "<a href=''>"+
+						var media = "<li id='test' class='mui-table-view-cell mui-media'>"+
+								    "<a href='media.html?newsId="+data[i].newsId+"'>"+
 								       " <div class='mui-media-body' >"+
-								        	data[i].newsSource
-								            + "<p class='mui-ellipsis'>"+data[i].newsTitle+"</p>"+
+								        	data[i].newsSource+ 
+								            "<p class='mui-ellipsis'>"+data[i].newsTitle+"</p>"+
 								        	"<span class='time'>"+data[i].newsTime+"</span></div> </a></li>"
 						$("#media").append(media);
 					}
@@ -90,8 +90,15 @@
 			});
 		})
 	</script>
+	
 </head>
 <body>
+	<script type="text/javascript">
+        mui('body').on('tap','a',function(){
+		    window.top.location.href=this.href;
+		});
+
+    </script>
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->
@@ -161,48 +168,19 @@
    					<div id="tab_content">
    						<!--第一页选项卡-->
    						<div id="first_tab">
-   							<ul class="mui-table-view" id="PolInterpre">
-   								<!--<li id="test" class="mui-table-view-cell mui-media" >
-								    <a href="javascript:;">
-								        <div class="mui-media-body" >
-								        	中国工商报
-								            <p class='mui-ellipsis' >总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
-								        	<span class="time">2017-11-15</span>
-								        </div>
-								    </a>
-								</li>-->
+   							<ul class="mui-table-view" id="PolInterpre"> 
    							</ul>
    						</div>
    						
    						<!--第二页选项卡-->
    						<div id="second_tab">
-   							<ul class="mui-table-view" id="media">
-   								<!--<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
-								        <div class="mui-media-body">
-								        	国家工商总局
-								            <p class='mui-ellipsis'>国家工商总局就2017年前三季度市场环境形势情况举行发布会</p>
-								        	<span class="time">2017-11-15</span>
-								        </div>
-								    </a>
-								</li>-->
+   							<ul class="mui-table-view" id="media"> 								
    							</ul>
    						</div>
    						
    						<!--第三页选项卡-->
    						<div id="third_tab">
    							<ul class="mui-table-view" id="consult">
-   								<!--<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
-								        <div class="mui-media-body">
-								            <p class='mui-ellipsis'>五证合一是哪五证</p>
-								        	<span class="time">2017-11-15</span>
-								        	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>
-								        	<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>
-											<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
-								        </div>
-								    </a>
-								</li>-->
    							</ul>
    						</div>
    					</div>
