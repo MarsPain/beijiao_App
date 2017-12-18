@@ -26,12 +26,12 @@
 	            	return unescape(r[2]); 
 	            return null;
              }; 
-	        var picPolicyId = {"picPolicyId":getUrlParam('picPolicyId')};
+	        var picPolId = {"picPolId":getUrlParam('picPolId')};
 	        $(document).ready(function(){
 				 $.ajax({
 				    type:"get",
 		    		url:"http://192.168.3.78:8080/beijiao/picpol/getPicPol_app",
-		    		data:picPolicyId,
+		    		data:picPolId,
 		    		dataType : 'json', // 数据类型配置成json
 		    		async:true,
 		    		//contentType:"application/json;charset=utf-8",

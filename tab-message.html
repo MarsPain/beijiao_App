@@ -14,7 +14,7 @@
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     <script type="text/javascript" src="js/tab-message.js"></script>
     <script type="text/javascript">
-    	var a = location.href;
+    	/*var a = location.href;
 		var getUrlParam = function(a){
 	            var reg = new RegExp("(^|&)"+ a +"=([^&]*)(&|$)");
 	            var r = window.location.search.substr(1).match(reg);
@@ -22,61 +22,80 @@
 	            	return unescape(r[2]); 
 	            return null;
             }; 
-	    var id = {"data":getUrlParam('data')};
+	    var id = {"data":getUrlParam('data')};*/
     	  $(document).ready(function(){
-    	  	 $.ajax({
-			    type:"get",
-	    		url:"http://192.168.3.78:8080/beijiao/app/app_userPolicy",
-	    		data:id,
-	    		dataType : 'json', // 数据类型配置成json
-	    		async:true,
-	    		xhrFields: {
+    	  	$.ajax({
+    			type:"get",
+    			url:"http://192.168.3.78:8080/beijiao/app/confirm_session",
+    			async:true,
+    			data:{},
+    			dataType:"json",
+    			xhrFields: {
 	            withCredentials: true
 	            },
-	    		//contentType:"application/json;charset=utf-8",
-	    		success : function(data,status){
-	    			//alert("完成");
-					for (var i = 0; i < data.length; i++) {
-						var policy = "<li class='mui-table-view-cell mui-media'>" +
-						        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
-								        	"<div class='mui-media-body'>"+
-									        	data[i].polSource +
-									        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
-									        "<span class='time'>"+data[i].polTime+
-									        "</span></div></a></li>"
-						$("#my_policy").append(policy);
-					}
-	    		},
-	    		error : function(data,status,e){
-	    			alert("失败");
-	    		}
-			});
+    			success:function(data){
+    				if(data.user=="confirm_session_fail"){
+    					var id ={"userId":data.user}
+    					window.location.href="login.html";
+    				}else{
+    					$.ajax({
+							    type:"get",
+					    		url:"http://192.168.3.78:8080/beijiao/app/app_userPolicy",
+					    		data:id,
+					    		dataType : 'json', // 数据类型配置成json
+					    		async:true,
+					    		xhrFields: {
+					            withCredentials: true
+					            },
+					    		//contentType:"application/json;charset=utf-8",
+					    		success : function(data,status){
+					    			//alert("完成");
+									for (var i = 0; i < data.length; i++) {
+										var policy = "<li class='mui-table-view-cell mui-media'>" +
+										        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
+												        	"<div class='mui-media-body'>"+
+													        	data[i].polSource +
+													        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
+													        "<span class='time'>"+data[i].polTime+
+													        "</span></div></a></li>"
+										$("#my_policy").append(policy);
+									   }
+						    		}
+								});
+		    				
+			    				$.ajax({
+								    type:"get",
+						    		url:"http://192.168.3.78:8080/beijiao/app/userdiscuss_app",
+						    		data:{},
+						    		dataType : 'json', // 数据类型配置成json
+						    		async:true,
+						    		//contentType:"application/json;charset=utf-8",
+						    		success : function(data,status){
+						    			//alert("完成");
+										for (var i = 0; i < data.length; i++) {
+											var consult = "<li id='test' class='mui-table-view-cell mui-media'>"+
+													    "<a href=javascript:;>"+
+													        '<div class="mui-media-body">'+
+													            "<p class='mui-ellipsis'>"+data[i].disTitle+"</p>"+
+													        	'<span class="time">'+data[i].disTime+'</span>'+
+													        	'<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>'+
+													        	'<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>'+
+																"<p class='mui-ellipsis answer_detail'>"+data[i].reply+"</p></div></a></li>"			
+											$("#consult").append(consult);
+										}
+						    		},
+						    		error : function(data,status,e){
+						    			alert("失败");
+						    		}
+						    	});
+    			    }
+    	        },
+    			error:function(data,status,e){
+    				alert(e)
+    			}
+    	  } 
 			
-    	  	$.ajax({
-			    type:"get",
-	    		url:"http://192.168.3.78:8080/beijiao/app/userdiscuss_app",
-	    		data:{},
-	    		dataType : 'json', // 数据类型配置成json
-	    		async:true,
-	    		//contentType:"application/json;charset=utf-8",
-	    		success : function(data,status){
-	    			//alert("完成");
-					for (var i = 0; i < data.length; i++) {
-						var consult = "<li id='test' class='mui-table-view-cell mui-media'>"+
-								    "<a href=javascript:;>"+
-								        '<div class="mui-media-body">'+
-								            "<p class='mui-ellipsis'>"+data[i].disTitle+"</p>"+
-								        	'<span class="time">'+data[i].disTime+'</span>'+
-								        	'<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>'+
-								        	'<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>'+
-											"<p class='mui-ellipsis answer_detail'>"+data[i].reply+"</p></div></a></li>"			
-						$("#consult").append(consult);
-					}
-	    		},
-	    		error : function(data,status,e){
-	    			alert("失败");
-	    		}
-			});
+    	  	
     	  })
     </script>
 </head>

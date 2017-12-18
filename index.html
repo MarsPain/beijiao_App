@@ -9,8 +9,9 @@
     <script type="text/javascript" charset="utf-8">
       	mui.init();
     </script>
+    
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
     	function login(){
     		$.ajax({
     			type:"get",
@@ -49,7 +50,7 @@
     					//alert(data.user);
     					window.location.href="login.html";
     				}else{
-    					window.location.href="tab-personal-login.html.html?data="+data.user;
+    					window.location.href="tab-personal-login.html?data="+data.user;
     				}
     			},
     			error:function(data,status,e){
@@ -57,7 +58,7 @@
     			}
     		});
     	}
-    </script>
+    </script>-->
 </head>
 <body>
 	<div class="mui-content">
@@ -81,7 +82,6 @@
 	        </a>
 	    </nav>
     </div>
-    
     <script src="js/mui.min.js"></script>
     <script>
         mui.init();
@@ -104,10 +104,10 @@
                 },
                 message: {
                     url: 'tab-message.html',
-                    styles: styles
+                    styles: styles,
                 },
                 personal: {
-                    url: 'tab-personal.html',
+                    url: 'tab-personal-login.html',
                     styles: styles
                 }
             };
@@ -130,5 +130,6 @@
             });
         });
     </script>
+    
 </body>
 </html>

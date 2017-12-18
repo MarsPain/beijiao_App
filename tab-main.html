@@ -1,4 +1,3 @@
-<!-- tab-*.html 举例-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +15,7 @@
     <script type="text/javascript" src="js/tab-main.js"></script>
     <script text/javascript>
 	    $(document).ready(function(){
-			 $.ajax({
+			$.ajax({
 			    type:"get",
 	    		url:"http://192.168.3.78:8080/beijiao/policy/app_allPolicy",
 	    		data:{},
@@ -33,13 +32,37 @@
 									        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
 									        "<span class='time'>"+data[i].polTime+
 									        "</span></div></a></li>"
-						$(".mui--view").append(policy);
+						$("#pol").append(policy);
 					}
 	    		},
 	    		error : function(data,status,e){
 	    			alert("失败");
 	    		}
 			});
+		    $.ajax({
+				    type:"get",
+		    		url:"http://192.168.3.78:8080/beijiao/picpol/allpicPol_app",
+		    		data:{},
+		    		dataType : 'json', // 数据类型配置成json
+		    		async:true,
+		    		//contentType:"application/json;charset=utf-8",
+		    		success : function(data,status){
+		    			var picpol1 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[0].picPolId+"'>" +
+						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[0].picPolFile+"'/></a></div>"
+						$("#showpicpol").append(picpol1);
+		    			for (var i = 1; i < data.length-1; i++) {
+						     var picpol = "<div class='mui-slider-item'><a href='policy-img.html?="+data[i].picPolId+"'>" +
+						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[i].picPolFile+"'/></a></div>"
+						     $("#showpicpol").append(picpol);
+				     	}
+		    			var picpol2 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[data.length-1].picPolId+"'>" +
+						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[data.length-1].picPolFile+"'/></a></div>"
+						$("#showpicpol").append(picpol2);
+		    		},
+		    		error : function(data,status,e){
+		    			alert("失败");
+		    		}
+				});
 		})
 	</script>
 </head>
@@ -82,10 +105,13 @@
 				        <a class="mui-navigate-right">文化传媒</a>
 				    </li>
 				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">医疗保健</a>
+				        <a class="mui-navigate-right">医疗</a>
 				    </li>
 				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">食品酒水</a>
+				        <a class="mui-navigate-right">食品</a>
+				    </li>
+				    <li class="mui-table-view-cell">
+				        <a class="mui-navigate-right">农林渔牧</a>
 				    </li>
 				</ul>
 	        </div>
@@ -132,29 +158,20 @@
     
 		    <!--图片轮播-->
 		    <div id="img_policy" class="mui-slider">
-			    <div class="mui-slider-group mui-slider-loop">
+			    <div class="mui-slider-group mui-slider-loop" id="showpicpol">
 				    <!--支持循环，需要重复图片节点-->
-				    <div class="mui-slider-item mui-slider-item-duplicate"><a href="policy-img.html"><img src="images/01.jpg" /></a></div>
+				    <!--<div class="mui-slider-item mui-slider-item-duplicate"><a href="policy-img.html"><img src="images/01.jpg" /></a></div>
 				    <div class="mui-slider-item"><a href="policy-img.html"><img src="images/02.jpg" /></a></div>
 				    <div class="mui-slider-item"><a href="policy-img.html"><img src="images/01.jpg" /></a></div>
-				    <div class="mui-slider-item"><a href="policy-img.html"><img src="images/02.jpg" /></a></div>
+				    <div class="mui-slider-item"><a href="policy-img.html"><img src="images/02.jpg" /></a></div>-->
 				    <!--支持循环，需要重复图片节点-->
-				    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/01.jpg" /></a></div>
+				    <!--<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/01.jpg" /></a></div>-->
 			    </div>
 			</div>
 	
 			<!--消息列表-->
 			<div id="policy_list">
-				<ul class="mui--view">
-					<!--<li class="mui-table-view-cell mui-media">
-					    <a class="policy" href="policy.html">
-					        <div class="mui-media-body">
-					        	国务院
-					            <p class='mui-ellipsis'>李克强对全国小微企业金融服务电视电话会议作出重要批示</p>
-					        	<span class="time">2017-11-15</span>
-					        </div>
-					    </a>
-					</li>-->
+				<ul class="mui-table-view" id="pol">
 					<!--<li class="mui-table-view-cell mui-media">
 					    <a href="javascript:;">
 					        <div class="mui-media-body">

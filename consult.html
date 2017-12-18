@@ -19,16 +19,26 @@
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/consult.js"></script>
     	<script type="text/javascript">
+    		var a = location.href;
+			var getUrlParam = function(a){
+	            var reg = new RegExp("(^|&)"+ a +"=([^&]*)(&|$)");
+	            var r = window.location.search.substr(1).match(reg);
+	            if (r!=null) 
+	            	return unescape(r[2]); 
+	            return null;
+            };
+            
     		function addConsult() {
-    			var disTitle = $("#disTitle").val();
-    			var disContent = $("#disContent").val();
-    			var email = $("#email").val();
-    			var consult={"disTitle":disTitle,"disContent":disContent,"email":email};
+	    		var disTitle = $("#disTitle").val();
+				var disContent = $("#disContent").val();
+				var email = $("#email").val();
+				var userId = getUrlParam('data')
+				var consult={"userId":userId,"disTitle":disTitle,"disContent":disContent,"email":email};
     			$.ajax({
     				type:"post",
     				url:"http://192.168.3.78:8080/beijiao/consult/addDis_app",
     				data:consult,
-    				dataType:"json"
+    				dataType:"json",
     				async:true,
     				success:function(data){
     					if(data == "success"){
