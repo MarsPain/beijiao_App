@@ -7,15 +7,43 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/login.css" rel="stylesheet" />
-	</head>
-
-	<body>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/register.js"></script>
+    	<script type="text/javascript">
+    	    function register(){
+    	    	var user = {"username":$("#account").val(),"password":$("#password_check").val(),"pClassName":$(".industry").val()}
+    	    	alert($(".mui-table-view-cell mui-collapse").val()+"mui-table-view-cell mui-collapse")
+    	    	alert($(".mui-collapse-content").val()+"mui-collapse-content")
+    	    	alert($("#industry_select").val()+"#industry_select")
+	        	$.ajax({
+	        		type:"post",
+	        		/*url:"http://192.168.3.78:8080/beijiao/app/app_reg",*/
+	        		async:true,
+	        		data:user,
+	        		dataType:"json",
+	        		success:function(data,status){
+	        			if(data.result=="success"){
+	        				window.location.href="login.html";
+	        			}
+	        			if(data.result=="fail"){
+	        				 alert("注册失败");
+	        			}
+	        		},
+	        		error: function(data,e){
+	        			//alert(e);
+	        			alert("注册失败");
+	        		}
+	        	});
+    	    }
+    	</script>
+	</head>
+
+	<body>
+		
     	
     	<!-- 头部（从左到右：返回按钮、标题）-->
 	    <header id="head" class="mui-bar mui-bar-nav">
@@ -37,21 +65,23 @@
 				</div>
 				<div class="mui-input-row">
 					<label>确认密码</label>
-					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+					<input id='password_check' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
 				</div>
 				<div style="line-height: 40px;">
 					<ul class="mui-table-view"> 
 				        <li id="industry_wrapper" class="mui-table-view-cell mui-collapse">
 				            <a id="industry_select" class="mui-navigate-right" href="#">请选择您关注的行业</a>
 				            <div class="mui-collapse-content">
-				                <p class="industry">食品酒水</p>
+				            	<p class="industry">请选择您关注的行业</p>
 				                <p class="industry">机械化工</p>
 				                <p class="industry">交通汽车</p>
 				                <p class="industry">房产建材</p>
 				                <p class="industry">服装纺织</p>
 				                <p class="industry">IT互联网</p>
 				                <p class="industry">文化传媒</p>
-				                <p class="industry">医疗保健</p>
+				                <p class="industry">医疗</p>
+				                <p class="industry">食品</p>
+				                <p class="industry">农林渔牧</p>
 				            </div>
 				        </li>
 				    </ul>
@@ -61,7 +91,7 @@
 			</form>
 			
 			<div id="login_button" class="mui-content-padded">
-				<button id='login' class="mui-btn mui-btn-block mui-btn-primary">注册</button>
+				<button id='login'onclick="register()" class="mui-btn mui-btn-block mui-btn-primary">注册</button>
 			</div>
 			
 		</div>

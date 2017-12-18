@@ -10,6 +10,54 @@
       	mui.init();
     </script>
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <script type="text/javascript">
+    	function login(){
+    		$.ajax({
+    			type:"get",
+    			url:"http://192.168.3.78:8080/beijiao/app/confirm_session",
+    			async:true,
+    			data:{},
+    			dataType:"json",
+    			xhrFields: {
+	            withCredentials: true
+	            },
+    			success:function(data){
+    				if(data.user=="confirm_session_fail"){
+    					//alert(data.user);
+    					window.location.href="login.html";
+    				}else{
+    					window.location.href="tab-message.html?data="+data.user;
+    				}
+    			},
+    			error:function(data,status,e){
+    				alert(e)
+    			}
+    		});
+    	}
+    	function login1(){
+    		$.ajax({
+    			type:"get",
+    			url:"http://192.168.3.78:8080/beijiao/app/confirm_session",
+    			async:true,
+    			data:{},
+    			dataType:"json",
+    			xhrFields: {
+	            withCredentials: true
+	            },
+    			success:function(data){
+    				if(data.user=="confirm_session_fail"){
+    					//alert(data.user);
+    					window.location.href="login.html";
+    				}else{
+    					window.location.href="tab-personal-login.html.html?data="+data.user;
+    				}
+    			},
+    			error:function(data,status,e){
+    				alert(e)
+    			}
+    		});
+    	}
+    </script>
 </head>
 <body>
 	<div class="mui-content">
@@ -22,12 +70,12 @@
 	            <span class="mui-icon mui-icon-more"></span>
 	            <span class="mui-tab-label">分类浏览</span>
 	        </a>
-	        <a id="message" class="mui-tab-item" href="tab-message.html" data-id="message">
+	        <a id="message" class="mui-tab-item" href="javascript:void(0)" onclick="login()" data-id="message">
 	            <span class="mui-icon mui-icon-chatboxes"></span>
 	            <span id="message_number" class="mui-badge mui-badge-primary">12</span>
 	            <span class="mui-tab-label">消息</span>   
 	        </a>
-	        <a class="mui-tab-item" href="tab-personal.html" data-id="personal">
+	        <a class="mui-tab-item" href="javascript:void(0)" onclick="login1()"" data-id="personal">
 	            <span class="mui-icon mui-icon-person"></span>
 	            <span class="mui-tab-label">个人</span>
 	        </a>
