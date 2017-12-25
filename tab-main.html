@@ -49,7 +49,7 @@
 		    		success : function(data,status){
 		    			var picpol1 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[0].picPolId+"'>" +
 						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[0].picPolFile+"'/></a></div>"
-						$("#showpicpol").append(picpol1);
+						$("#showpicpol").append(picpol1);	
 		    			for (var i = 1; i < data.length-1; i++) {
 						     var picpol = "<div class='mui-slider-item'><a href='policy-img.html?="+data[i].picPolId+"'>" +
 						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[i].picPolFile+"'/></a></div>"
@@ -58,6 +58,10 @@
 		    			var picpol2 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[data.length-1].picPolId+"'>" +
 						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[data.length-1].picPolFile+"'/></a></div>"
 						$("#showpicpol").append(picpol2);
+						var img_policy = mui('#img_policy');
+		                     img_policy.slider({
+			             interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
+	                    });
 		    		},
 		    		error : function(data,status,e){
 		    			alert("失败");
@@ -67,8 +71,64 @@
 	    
 	    //机构选择菜单取值函数
 		function select_institution(){
-			alert($("#institution option:selected").text());
-		};
+			var source={"source":$("#institution option:selected").text()};
+			$("#pol").children().remove()
+			$.ajax({
+			    type:"get",
+	    		url:"http://192.168.3.78:8080/beijiao/policy/app_sourcePolicy",
+	    		data:source,
+	    		dataType : 'json', // 数据类型配置成json
+	    		async:true,
+	    		//contentType:"application/json;charset=utf-8",
+	    		success : function(data,status){
+					for (var i = 0; i < data.length; i++) {
+						var policy = "<li class='mui-table-view-cell mui-media' >" +
+						        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
+								        	"<div class='mui-media-body'>"+
+									        	data[i].polSource +
+									        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
+									        "<span class='time'>"+data[i].polTime+
+									        "</span></div></a></li>"
+						$("#pol").append(policy);
+						console.log('测试时')
+					}
+	    		},
+	    		error : function(data,status,e){
+	    			alert("失败");
+	    		}
+			});
+		};		
+		
+		function check(){
+			var key = event.keyCode;
+			if (key == 13){
+			    search = {"search":$('#search_policy').val()}
+			    $("#pol").children().remove()
+				$.ajax({
+				    type:"get",
+		    		url:"http://192.168.3.78:8080/beijiao/policy/app_searchPolicy",
+		    		data:search,
+		    		dataType : 'json', // 数据类型配置成json
+		    		async:true,
+		    		//contentType:"application/json;charset=utf-8",
+		    		success : function(data,status){
+						for (var i = 0; i < data.length; i++) {
+							var policy = "<li class='mui-table-view-cell mui-media' >" +
+							        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
+									        	"<div class='mui-media-body'>"+
+										        	data[i].polSource +
+										        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
+										        "<span class='time'>"+data[i].polTime+
+										        "</span></div></a></li>"
+							$("#pol").append(policy);
+						}
+		    		},
+		    		error : function(data,status,e){
+		    			alert("失败");
+		    		}
+				});
+			}	
+		}
 	</script>
 </head>
 <body>
@@ -78,24 +138,17 @@
 		});
 
     </script>
-	
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->
 	  	<aside class="mui-off-canvas-left">
 	    <div class="mui-scroll-wrapper">
-	       	<div id="sideBar" class="mui-scroll">
+	       	<div id="sideBar" class="mui-scroll" >
 		        <!-- 菜单具体展示内容 -->
-		        <span id="sideBar_title">行业选择</span>
-		        <ul id="sideBar_list" class="mui-table-view">
-					<li class="mui-table-view-cell">
-				        <a class="mui-navigate-right industry" href="tab-main.html">首页</a>
-				   	</li>
-					<li class="mui-table-view-cell">
-				        <a class="mui-navigate-right industry" href="policyList.html">热点关注</a>
-				   	</li>
+		        <span id="sideBar_title" >行业选择</span>
+		        <ul id="sideBar_list" class="mui-table-view" >
 				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right industry">机械化工</a>
+				        <a class="mui-navigate-right industry" >机械化工</a>
 				    </li>
 				    <li class="mui-table-view-cell">
 				        <a class="mui-navigate-right industry">交通汽车</a>
@@ -143,12 +196,10 @@
 					<div id="nav_left">
 						<form>
 							<select id="institution" name="发布机构" onchange="select_institution()" style="height: 38px;">
-								<option value="">国务院</option>
-								<option value="">发展和改革委员会</option>
-								<option value="">工业和信息化部门</option>
-								<option value="">科学技术部门</option>
-								<option value="">人力资源和社会保障部门</option>
-								<option value="">商务部门</option>
+								<option value="所有政策">所有政策</option>
+								<option value="国务院">国务院</option>
+								<option value="环保部">环保部</option>
+								<option value="国家食品药品监督管理总局">国家食品药品监督管理总局</option>
 								<option value="">其他</option>
 							</select>
 						</form>
@@ -157,7 +208,7 @@
 				
 				<div id="search" class="mui-content">
 				    <div class="mui-input-row mui-search">
-					    <input type="search" class="mui-input-clear" placeholder="查寻政策">
+					    <input type="search" class="mui-input-clear" placeholder="查寻政策" id='search_policy' onkeypress="return check()">
 					</div>
 			    </div>
 			</div>
@@ -180,15 +231,6 @@
 			<div id="policy_list">
 				<ul class="mui-table-view" id="pol">
 					<!--<li class="mui-table-view-cell mui-media">
-					    <a href="javascript:;">
-					        <div class="mui-media-body">
-								国务院
-					            <p class='mui-ellipsis'>《习近平谈治国理政》第二卷中英文版出版发行</p>
-					            <span class="time">2017-11-15</span>
-					        </div>
-					    </a>
-					</li>
-					<li class="mui-table-view-cell mui-media">
 					    <a href="javascript:;">
 					        <div class="mui-media-body">
 								国务院
