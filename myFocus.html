@@ -7,9 +7,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/myFocus.css" rel="stylesheet" />
-	</head>
-
-	<body>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init();
@@ -21,6 +18,40 @@
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/myFocus.js"></script>
+		<script type="text/javascript">                  
+			var a = location.href;
+			var getUrlParam = function(a){
+	            var reg = new RegExp("(^|&)"+ a +"=([^&]*)(&|$)");
+	            var r = window.location.search.substr(1).match(reg);
+	            if (r!=null) 
+	            	return unescape(r[2]); 
+	            return null;
+           };
+            function changemyFocus(){
+            	var user = {"userId":getUrlParam('data'),"pClassName":$('input:radio:checked').val()}
+            	$.ajax({
+            		type:"post",
+            		/*url:"http://192.168.3.78:8080/beijiao/app/changepswd",*/
+            		async:true,
+            		data:user,
+            		dataType:"json",
+            		success : function(data,status){
+            			if(data.result=="success"){
+            				alert("成功")
+            			}
+            			if(data.result=="fail"){
+            				alert("失败")
+            			}
+            		},
+		    		error : function(data,status,e){
+		    			alert("失败");
+		    		}
+            	});
+            }
+        </script>
+	</head>
+
+	<body>
 		
 		<!-- 主页面容器 -->
 		<div class="mui-inner-wrap">
@@ -38,38 +69,42 @@
    					<form class="mui-input-group">
 					    <div class="mui-input-row mui-radio">
 							<label>机械化工</label>
-							<input name="radio1" type="radio">
+							<input name="radio1" type="radio" value="机械化工">
 						</div>
 						<div class="mui-input-row mui-radio">
 							<label>交通汽车</label>
-							<input name="radio1" type="radio">
+							<input name="radio1" type="radio" value="交通汽车">
 						</div>
 						<div class="mui-input-row mui-radio">
 							<label>房产建材</label>
-							<input name="radio1" type="radio">
+							<input name="radio1" type="radio" value="房产建材">
 						</div>
-						<div class="mui-input-row mui-radio">
+						<div class="mui-input-row mui-radio" >
 							<label>服装纺织</label>
-							<input name="radio1" type="radio">
+							<input name="radio1" type="radio" value="服装纺织">
 						</div>
-						<div class="mui-input-row mui-radio">
+						<div class="mui-input-row mui-radio" >
 							<label>IT互联网</label>
-							<input name="radio1" type="radio">
+							<input name="radio1" type="radio" value="IT互联网">
 						</div>
-						<div class="mui-input-row mui-radio">
+						<div class="mui-input-row mui-radio" >
 							<label>文化传媒</label>
-							<input name="radio1" type="radio">
+							<input name="radio1" type="radio" value="文化传媒">
 						</div>
 						<div class="mui-input-row mui-radio">
-							<label>医疗保健</label>
-							<input name="radio1" type="radio">
+							<label>医疗</label>
+							<input name="radio1" type="radio" value="医疗">
 						</div>
 						<div class="mui-input-row mui-radio">
-							<label>食品酒水</label>
-							<input name="radio1" type="radio">
+							<label>食品</label>
+							<input name="radio1" type="radio" value="食品">
+						</div>
+						<div class="mui-input-row mui-radio">
+							<label>农林渔牧</label>
+							<input name="radio1" type="radio" value="农林渔牧">
 						</div>
 					    <div class="mui-button-row">
-					        <button id="ensure" type="button" class="mui-btn mui-btn-primary" >确认</button>
+					        <button id="ensure" type="button" class="mui-btn mui-btn-primary" onclick="changemyFocus()">确认</button>
 					        <a href="tab-personal.html"><button id="cansel" type="button" class="mui-btn mui-btn-danger" >取消</button></a>
 					    </div>
 					</form>

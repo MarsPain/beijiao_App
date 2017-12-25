@@ -25,7 +25,7 @@
 	            if (r!=null) 
 	            	return unescape(r[2]); 
 	            return null;
-             }; 
+            }; 
 	        var policyId = {"policyId":getUrlParam('policyId')};
 	        $(document).ready(function(){
 				 $.ajax({
@@ -36,7 +36,7 @@
 		    		async:true,
 		    		//contentType:"application/json;charset=utf-8",
 		    		success : function(data,status){
-		    			alert("完成");
+		    			//alert("完成");
 		    			var detail= "<p class='mui-ellipsis'>"+data.polTitle+"</p>"+
 					        	    '<span class="institution">'+data.polSource+"</span>"+
 					        	     '<span class="time">'+data.polTime+"</span>"

@@ -26,17 +26,17 @@
 	            	return unescape(r[2]); 
 	            return null;
              }; 
-	        var picPolicyId = {"picPolicyId":getUrlParam('picPolicyId')};
+	        var picPolId = {"picPolId":getUrlParam('picPolId')};
 	        $(document).ready(function(){
 				 $.ajax({
 				    type:"get",
 		    		url:"http://192.168.3.78:8080/beijiao/picpol/getPicPol_app",
-		    		data:picPolicyId,
+		    		data:picPolId,
 		    		dataType : 'json', // 数据类型配置成json
 		    		async:true,
 		    		//contentType:"application/json;charset=utf-8",
 		    		success : function(data,status){
-		    			alert("完成");
+		    			//alert("完成");
 		    			var detail= "<p class='mui-ellipsis'>"+data.picPolTitle+"</p>"+
 					        	    '<span class="institution">'+data.picPolSource+"</span>"+
 					        	     '<span class="time">'+data.picPolTime+"</span>"
@@ -85,7 +85,7 @@
    					<ul class="mui-table-view">
 						<li class="mui-table-view-cell mui-media">
 					        <div id="content" class="mui-media-body" >	
-					        	<img  src="images/01.jpg">
+					        	<!--<img  src="images/01.jpg">-->
 					        	<p id="content_detail"style="font-size: 16px; color: #555555;">
 					        	</p>
 					        </div>

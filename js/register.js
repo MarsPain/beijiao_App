@@ -4,6 +4,7 @@ window.onload = function(){
 		var ind = $(this).text();
 		$("#industry_select").text(ind);
 		$("#industry_wrapper").removeClass("mui-active");
+		alert(int)
 	});
 	
 //	$(".industry").click(function(){

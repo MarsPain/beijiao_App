@@ -14,14 +14,11 @@
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/register.js"></script>
     	<script type="text/javascript">
-    	    function register(){
-    	    	var user = {"username":$("#account").val(),"password":$("#password_check").val(),"pClassName":$(".industry").val()}
-    	    	alert($(".mui-table-view-cell mui-collapse").val()+"mui-table-view-cell mui-collapse")
-    	    	alert($(".mui-collapse-content").val()+"mui-collapse-content")
-    	    	alert($("#industry_select").val()+"#industry_select")
+    	    function register(){	
+    	    	var user = {"username":$("#account").val(),"password":$("#password_check").val(),"pClassName":$("#industry_select").text()}
 	        	$.ajax({
 	        		type:"post",
-	        		/*url:"http://192.168.3.78:8080/beijiao/app/app_reg",*/
+	        		url:"http://192.168.3.78:8080/beijiao/app/app_reg",
 	        		async:true,
 	        		data:user,
 	        		dataType:"json",
@@ -42,9 +39,7 @@
     	</script>
 	</head>
 
-	<body>
-		
-    	
+	<body>	
     	<!-- 头部（从左到右：返回按钮、标题）-->
 	    <header id="head" class="mui-bar mui-bar-nav">
 	      	<a id="back" href="login.html"><button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button></a>

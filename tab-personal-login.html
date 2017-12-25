@@ -13,6 +13,37 @@
     </script>
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     <script type="text/javascript" src="js/tab-personal.js"></script>
+    <script type="text/javascript">                  
+		$(document).ready(function(){
+    	  	$.ajax({
+    			type:"get",
+    			url:"http://192.168.3.78:8080/beijiao/app/confirm_session",
+    			async:true,
+    			data:{},
+    			dataType:"json",
+    			xhrFields: {
+	            withCredentials: true
+	            },
+    			success:function(data){
+    				if(data.user=="confirm_session_fail"){
+    					var id ={"userId":data.user}
+    					window.location.href="login.html";
+    				}else{
+    					function changePswd(){
+				        	window.location.href="passwordChange.html?data="+data.user;
+				        }
+				        function addconsult(){
+				        	window.location.href="consult.html?data="+data.user;
+				        }
+				        function changeInstr(){
+				        	window.location.href="myFocus.html?data="+data.user;
+				        }
+				    }
+    			},
+    			error:function(data,status,e){
+    				alert(e)
+    			})      
+    </script>
 </head>
 <body>
 	
@@ -93,13 +124,13 @@
 				<div id="operation">
 					<ul class="mui-table-view">
 					    <li class="mui-table-view-cell">
-					        <a class="mui-navigate-right" href="passwordChange.html">密码修改</a>
+					        <a class="mui-navigate-right" href="javascript:void(0)" onclick="changePswd()">密码修改</a>
 					    </li>
 					    <li class="mui-table-view-cell">
-					        <a class="mui-navigate-right" href="consult.html">我要咨询</a>
+					        <a class="mui-navigate-right" href="javascript:void(0)" onclick="addconsult()">我要咨询</a>
 					    </li>
 					    <li class="mui-table-view-cell">
-					        <a class="mui-navigate-right" href="myFocus.html">我的关注</a>
+					        <a class="mui-navigate-right" href="javascript:void(0)" onclick="changeInstr()">我的关注</a>
 					    </li>
 					</ul>
 				</div>
