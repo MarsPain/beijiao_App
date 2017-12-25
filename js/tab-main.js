@@ -11,5 +11,9 @@ window.onload = function(){
 			interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
 	});
 	
-
+	//对侧滑菜单栏进行取值的函数
+	mui('body').on('tap','.industry',function(){
+	    alert($(this).text());
+	    window.top.location.href=this.href;
+	});
 }

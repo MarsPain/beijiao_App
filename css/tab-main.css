@@ -26,6 +26,21 @@
 	background-color: #007AFF;
 }
 
+/*********表单形式的侧滑行业选择菜单栏**********/
+#industry_list {
+	
+}
+#industry_list .industry {
+	width: 100%;
+	height: 60px;
+	font-size: 18px;
+	color: #000000;
+	background: #FFFFFF;
+	border: none;
+}
+#industry_list .industry:hover {
+	background-color: #007AFF;
+}
 
 /************主页框架**************/
 
@@ -43,6 +58,7 @@
 /***********区域选择的下拉菜单*********/
 #nav_wrap {
 	width: 100%;
+	height: 35px;
 }
 #nav_left_wrap {
 	width: 50%;
