@@ -134,6 +134,11 @@
 
 <body>
 	<script type="text/javascript">
+//		进入详情页面的函数
+		mui('body').on('tap','#pol li a',function(){
+			window.top.location.href=this.href;
+		});
+		
 //		对侧滑菜单栏进行取值并打开响应页面的函数
 		mui('body').on('tap','.industry',function(){
 			ind = $(this).text();
