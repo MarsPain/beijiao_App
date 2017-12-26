@@ -17,30 +17,25 @@
 		function select_institution(){
 			alert($("#institution option:selected").text());
 		};
-		
-		mui.plusReady(function(){
-		    var self = plus.webview.currentWebview();
-		    var ind = self.ind;//获得参数
-		    $("#head_title").text(ind);
-		});
+	
 
 	</script>
 </head>
 <body>
 	<script type="text/javascript">
-//      mui('body').on('tap','a',function(){
-//		    window.top.location.href=this.href;
-//		});
+        mui('body').on('tap','a',function(){
+		    window.top.location.href=this.href;
+		});
 
 //		对侧滑菜单栏进行取值的函数
-		mui('body').on('tap','#back',function(){
-			mui.plusReady(function(){
-				mui.openWindow({
-			    	url:"tab-main.html",
-			    	id:"tab-main.html",
-			    });
-			});
-		});
+//		mui('body').on('tap','#back',function(){
+//			mui.plusReady(function(){
+//				mui.openWindow({
+//			    	url:"tab-main.html",
+//			    	id:"tab-main.html",
+//			    });
+//			});
+//		});
     </script>
 	
 	<!-- 主页面容器 -->
