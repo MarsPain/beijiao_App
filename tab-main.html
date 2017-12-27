@@ -47,15 +47,15 @@
 		    		async:true,
 		    		//contentType:"application/json;charset=utf-8",
 		    		success : function(data,status){
-		    			var picpol1 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[0].picPolId+"'>" +
+		    			var picpol1 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?picPolId="+data[0].picPolId+"'>" +
 						        	   "<img src='http://192.168.1.102:8080/beijiao/"+data[0].picPolFile+"'/></a></div>"
 						$("#showpicpol").append(picpol1);	
 		    			for (var i = 1; i < data.length-1; i++) {
-						     var picpol = "<div class='mui-slider-item'><a href='policy-img.html?="+data[i].picPolId+"'>" +
+						     var picpol = "<div class='mui-slider-item'><a href='policy-img.html?picPolId="+data[i].picPolId+"'>" +
 						        	   "<img src='http://192.168.1.102:8080/beijiao/"+data[i].picPolFile+"'/></a></div>"
 						     $("#showpicpol").append(picpol);
 				     	}
-		    			var picpol2 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[data.length-1].picPolId+"'>" +
+		    			var picpol2 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?picPolId="+data[data.length-1].picPolId+"'>" +
 						        	   "<img src='http://192.168.1.102:8080/beijiao/"+data[data.length-1].picPolFile+"'/></a></div>"
 						$("#showpicpol").append(picpol2);
 						var img_policy = mui('#img_policy');
