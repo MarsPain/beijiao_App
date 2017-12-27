@@ -40,7 +40,7 @@ window.onload = function(){
 		    			alert("失败");
 		    		}
 			 });
-			 
+			$("#head_title").text($(this).text());
 			mui('#offCanvasWrapper').offCanvas('close');
 	});
 	
@@ -71,6 +71,7 @@ window.onload = function(){
     			alert("失败");
     		}
 		});
+		$("#head_title").text("新政策网");
 		mui('#offCanvasWrapper').offCanvas('close');
 	});
 }
