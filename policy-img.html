@@ -9,11 +9,10 @@
 		<link href="css/policy-img.css" rel="stylesheet" />
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
-			mui.init();
-			
-			mui('body').on('tap','#back',function(){
-				window.top.location.href=this.href;
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
 			});
+			
 		</script>
 		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     	<script type="text/javascript" src="js/policy-img.js"></script>
@@ -25,7 +24,7 @@
 	            if (r!=null) 
 	            	return unescape(r[2]); 
 	            return null;
-             }; 
+            };
 	        var picPolId = {"picPolId":getUrlParam('picPolId')};
 	        $(document).ready(function(){
 				 $.ajax({
@@ -58,7 +57,8 @@
 		<div class="mui-inner-wrap">
 		    <!-- 头部（从左到右：侧滑按钮、标题、搜索框）-->
 		    <header id="head" class="mui-bar mui-bar-nav">
-		      	<a id="back" href="tab-main.html"><button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button></a>
+		      	<!--<a id="back" href="tab-main.html"><button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">返回</button></a>-->
+		      	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 		      	<h1 id="head_title" class="mui-title">新政策网</h1>
 		    </header>
 
