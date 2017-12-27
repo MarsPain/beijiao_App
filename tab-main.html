@@ -17,7 +17,7 @@
 	    $(document).ready(function(){
 			$.ajax({
 			    type:"get",
-	    		url:"http://192.168.3.78:8080/beijiao/policy/app_allPolicy",
+	    		url:"http://192.168.1.102:8080/beijiao/policy/app_allPolicy",
 	    		data:{},
 	    		dataType : 'json', // 数据类型配置成json
 	    		async:true,
@@ -41,22 +41,22 @@
 			});
 		    $.ajax({
 				    type:"get",
-		    		url:"http://192.168.3.78:8080/beijiao/picpol/allpicPol_app",
+		    		url:"http://192.168.1.102:8080/beijiao/picpol/allpicPol_app",
 		    		data:{},
 		    		dataType : 'json', // 数据类型配置成json
 		    		async:true,
 		    		//contentType:"application/json;charset=utf-8",
 		    		success : function(data,status){
 		    			var picpol1 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[0].picPolId+"'>" +
-						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[0].picPolFile+"'/></a></div>"
+						        	   "<img src='http://192.168.1.102:8080/beijiao/"+data[0].picPolFile+"'/></a></div>"
 						$("#showpicpol").append(picpol1);	
 		    			for (var i = 1; i < data.length-1; i++) {
 						     var picpol = "<div class='mui-slider-item'><a href='policy-img.html?="+data[i].picPolId+"'>" +
-						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[i].picPolFile+"'/></a></div>"
+						        	   "<img src='http://192.168.1.102:8080/beijiao/"+data[i].picPolFile+"'/></a></div>"
 						     $("#showpicpol").append(picpol);
 				     	}
 		    			var picpol2 = "<div class='mui-slider-item mui-slider-item-duplicate'><a href='policy-img.html?="+data[data.length-1].picPolId+"'>" +
-						        	   "<img src='http://192.168.3.78:8080/beijiao/"+data[data.length-1].picPolFile+"'/></a></div>"
+						        	   "<img src='http://192.168.1.102:8080/beijiao/"+data[data.length-1].picPolFile+"'/></a></div>"
 						$("#showpicpol").append(picpol2);
 						var img_policy = mui('#img_policy');
 		                     img_policy.slider({
@@ -72,15 +72,15 @@
 	    //机构选择菜单取值函数
 		function select_institution(){
 			var source={"source":$("#institution option:selected").text()};
-			$("#pol").children().remove()
 			$.ajax({
 			    type:"get",
-	    		url:"http://192.168.3.78:8080/beijiao/policy/app_sourcePolicy",
+	    		url:"http://192.168.1.102:8080/beijiao/policy/app_sourcePolicy",
 	    		data:source,
 	    		dataType : 'json', // 数据类型配置成json
 	    		async:true,
 	    		//contentType:"application/json;charset=utf-8",
 	    		success : function(data,status){
+	    			$("#pol").children().remove()
 					for (var i = 0; i < data.length; i++) {
 						var policy = "<li class='mui-table-view-cell mui-media' >" +
 						        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
@@ -106,7 +106,7 @@
 			    $("#pol").children().remove()
 				$.ajax({
 				    type:"get",
-		    		url:"http://192.168.3.78:8080/beijiao/policy/app_searchPolicy",
+		    		url:"http://192.168.1.102:8080/beijiao/policy/app_searchPolicy",
 		    		data:search,
 		    		dataType : 'json', // 数据类型配置成json
 		    		async:true,
@@ -130,6 +130,7 @@
 			}	
 		}
 	</script>
+
 </head>
 
 <body>
@@ -137,20 +138,6 @@
 		mui('body').on('tap','a',function(){
 			window.top.location.href=this.href;
 		});
-		
-//		对侧滑菜单栏进行取值并打开响应页面的函数
-//		mui('body').on('tap','.industry',function(){
-//			ind = $(this).text();
-//		    alert(ind);
-//		    mui.openWindow({
-//		    	url:"policyList.html",
-//		    	id:ind,
-//		    	extras:{
-//		    		ind:ind,
-//		    	},
-//		    });
-//		});
-
     </script>
 	<!--带侧滑菜单的框架-->
 	<div class="mui-off-canvas-wrap mui-draggable">
