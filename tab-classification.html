@@ -94,8 +94,20 @@
 </head>
 <body>
 	<script type="text/javascript">
-        mui('body').on('tap','a',function(){
-		    window.top.location.href=this.href;
+		mui('body').on('tap','#PolInterpre a',function(){
+			var href = $(this).attr("href");
+			mui.openWindow({
+				url:href,
+				id:href,
+			});
+		});
+		
+		mui('body').on('tap','#media a',function(){
+			var href = $(this).attr("href");
+			mui.openWindow({
+				url:href,
+				id:href,
+			});
 		});
 
     </script>
