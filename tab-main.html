@@ -135,12 +135,17 @@
 
 <body>
 	<script type="text/javascript">
-		mui('body').on('tap','a',function(){
-			window.top.location.href=this.href;
+		mui('body').on('tap','#pol li a',function(){
+			var href = $(this).attr("href");
+			mui.openWindow({
+				url:href,
+				id:href,
+			});
 		});
+	
     </script>
 	<!--带侧滑菜单的框架-->
-	<div class="mui-off-canvas-wrap mui-draggable">
+	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
 	  	<!-- 菜单容器 -->
 	  	<aside id="offCanvasSide" class="mui-off-canvas-left">
 	    <div class="mui-scroll-wrapper">

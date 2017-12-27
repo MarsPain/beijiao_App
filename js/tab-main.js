@@ -40,5 +40,7 @@ window.onload = function(){
 		    			alert("失败");
 		    		}
 			 });
+			 
+			mui('#offCanvasWrapper').offCanvas('close');
 	});
 }
