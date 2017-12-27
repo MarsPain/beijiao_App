@@ -68,7 +68,7 @@
 		    		}
 				});
 		});
-	    
+		
 	    //机构选择菜单取值函数
 		function select_institution(){
 			var source={"source":$("#institution option:selected").text()};
@@ -150,7 +150,7 @@
 				id:href,
 			});
 		});
-	
+		
     </script>
 	<!--带侧滑菜单的框架-->
 	<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
@@ -161,6 +161,9 @@
 		        <!-- 菜单具体展示内容 -->
 		        <span id="sideBar_title" >行业选择</span>
 		        <ul id="sideBar_list" class="mui-table-view" >
+		        	<li class="mui-table-view-cell">
+				        <a class="mui-navigate-right" id="main">首页</a>
+				    </li>
 				    <li class="mui-table-view-cell">
 				        <a class="mui-navigate-right industry" >机械化工</a>
 				    </li>

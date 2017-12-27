@@ -43,4 +43,34 @@ window.onload = function(){
 			 
 			mui('#offCanvasWrapper').offCanvas('close');
 	});
+	
+	//	返回首页的取值函数
+	mui('body').on('tap','#main',function(){
+		$.ajax({
+		    type:"get",
+    		url:"http://192.168.1.102:8080/beijiao/policy/app_allPolicy",
+    		data:{},
+    		dataType : 'json', // 数据类型配置成json
+    		async:true,
+    		//contentType:"application/json;charset=utf-8",
+    		success : function(data,status){
+    			//alert("完成");
+    			$("#pol").children().remove()
+				for (var i = 0; i < data.length; i++) {
+					var policy = "<li class='mui-table-view-cell mui-media'>" +
+					        		"<a class='policy'  href='policy.html?policyId="+data[i].policyId+"'>"+
+							        	"<div class='mui-media-body'>"+
+								        	data[i].polSource +
+								        "<p class='mui-ellipsis'>"+data[i].polTitle+"</p>"+
+								        "<span class='time'>"+data[i].polTime+
+								        "</span></div></a></li>"
+					$("#pol").append(policy);
+				}
+    		},
+    		error : function(data,status,e){
+    			alert("失败");
+    		}
+		});
+		mui('#offCanvasWrapper').offCanvas('close');
+	});
 }
