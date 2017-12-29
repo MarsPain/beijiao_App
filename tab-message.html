@@ -103,135 +103,93 @@
 		    window.top.location.href=this.href;
 		});
     </script>
-	<!--带侧滑菜单的框架-->
-	<div class="mui-off-canvas-wrap mui-draggable">
-	  	<!-- 菜单容器 -->
-	  	<aside id="offCanvasSide" class="mui-off-canvas-left">
-	    <div class="mui-scroll-wrapper">
-	       	<div id="sideBar" class="mui-scroll">
-		        <!-- 菜单具体展示内容 -->
-		        <span id="sideBar_title">行业选择</span>
-		        <ul id="sideBar_list" class="mui-table-view">
-					<li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">热点关注</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">机械化工</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">交通汽车</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">房产建材</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">服装纺织</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">IT互联网</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">文化传媒</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">医疗保健</a>
-				    </li>
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">食品酒水</a>
-				    </li>
-				</ul>
-	        </div>
-	    </div>
-	  	</aside>
-	  	
-		<!-- 主页面容器 -->
-		<div class="mui-inner-wrap">
-		    <!-- 头部（从左到右：侧滑按钮、标题、搜索框）-->
-		    <header id="head" class="mui-bar mui-bar-nav">
-		      	<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
-		      	<h1 id="head_title" class="mui-title">我的消息</h1>
-		    </header>
+	<!-- 主页面容器 -->
+	<div class="mui-inner-wrap">
+	    <!-- 头部（从左到右：侧滑按钮、标题、搜索框）-->
+	    <header id="head" class="mui-bar mui-bar-nav">
+	      	<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+	      	<h1 id="head_title" class="mui-title">我的消息</h1>
+	    </header>
 
-			<!--正文部分-->
-		    <div class="mui-content mui-scroll-wrapper">
-			<div class="mui-scroll">
-   				<!--选项卡结构-->
-   				<div id="tab_wrap">
-   					<!--选项卡选择按钮-->
-   					<div id="tab_options">
-   						<ul>
-							<li>
-	   							<button id="first_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
-	   								为您推荐
-	   							</button>
-	   							<button id="second_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
-	   								咨询回复
-	   							</button>
-   							</li>
-   						</ul>
-   					</div>
-   					
-   					<!--选项卡内容-->
-   					<div id="tab_content">
-   						<!--第一页选项卡-->
-   						<div id="first_tab">
-   							<ul class="mui-table-view" id="my_policy">
-   								<!--<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
-								        <div class="mui-media-body">
-								        	中国工商报
-								            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
-								        	<span class="time">2017-11-15</span>
-								        </div>
-								    </a>
-								</li>
-								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
-								        <div class="mui-media-body">
-								        	中国工商报
-								            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
-								        	<span class="time">2017-11-15</span>
-								        </div>
-								    </a>
-								</li>-->
-   							</ul>
-   						</div>
-   						
-   						<!--第二页选项卡-->
-   						<div id="second_tab">
-   							<ul class="mui-table-view" id="consult">
-   								<!--<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
-								        <div class="mui-media-body">
-								        	五证合一
-								            <p class='mui-ellipsis'>五证合一是哪五证</p>
-								        	<span class="time">2017-11-15</span>
-								        	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>
-								        	<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>
-											<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
-								        </div>
-								    </a>
-								</li>
-								<li id="test" class="mui-table-view-cell mui-media">
-								    <a href="javascript:;">
-								        <div class="mui-media-body">
-								        	五证合一
-								            <p class='mui-ellipsis'>五证合一是哪五证</p>
-								        	<span class="time">2017-11-15</span>
-								        	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>
-								        	<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>
-											<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
-								        </div>
-								    </a>
-								</li>-->
-   							</ul>
-   						</div>
-   					</div>
-   				</div>
-   				
+		<!--正文部分-->
+	    <div class="mui-content mui-scroll-wrapper">
+		<div class="mui-scroll">
+			<!--选项卡结构-->
+			<div id="tab_wrap">
+				<!--选项卡选择按钮-->
+				<div id="tab_options">
+					<ul>
+						<li>
+   							<button id="first_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+   								为您推荐
+   							</button>
+   							<button id="second_tab_option" type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+   								咨询回复
+   							</button>
+						</li>
+					</ul>
+				</div>
+				
+				<!--选项卡内容-->
+				<div id="tab_content">
+					<!--第一页选项卡-->
+					<div id="first_tab">
+						<ul class="mui-table-view" id="my_policy">
+							<!--<li id="test" class="mui-table-view-cell mui-media">
+							    <a href="javascript:;">
+							        <div class="mui-media-body">
+							        	中国工商报
+							            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
+							        	<span class="time">2017-11-15</span>
+							        </div>
+							    </a>
+							</li>
+							<li id="test" class="mui-table-view-cell mui-media">
+							    <a href="javascript:;">
+							        <div class="mui-media-body">
+							        	中国工商报
+							            <p class='mui-ellipsis'>总局反垄断与反不正当竞争执法局局长就新《反不正当竞争法》接受记者专访</p>
+							        	<span class="time">2017-11-15</span>
+							        </div>
+							    </a>
+							</li>-->
+						</ul>
+					</div>
+					
+					<!--第二页选项卡-->
+					<div id="second_tab">
+						<ul class="mui-table-view" id="consult">
+							<!--<li id="test" class="mui-table-view-cell mui-media">
+							    <a href="javascript:;">
+							        <div class="mui-media-body">
+							        	五证合一
+							            <p class='mui-ellipsis'>五证合一是哪五证</p>
+							        	<span class="time">2017-11-15</span>
+							        	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>
+							        	<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>
+										<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
+							        </div>
+							    </a>
+							</li>
+							<li id="test" class="mui-table-view-cell mui-media">
+							    <a href="javascript:;">
+							        <div class="mui-media-body">
+							        	五证合一
+							            <p class='mui-ellipsis'>五证合一是哪五证</p>
+							        	<span class="time">2017-11-15</span>
+							        	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined answer">查看回复</button>
+							        	<div style="border:1px dashed #ebebeb; border-style:dotted; display: none;"></div>
+										<p class='mui-ellipsis answer_detail'>您好，“五证”指工商营业执照、统计登记证、组织机构代码证、税务登记证、社会保险登记证。</p>
+							        </div>
+							    </a>
+							</li>-->
+						</ul>
+					</div>
+				</div>
 			</div>
-		   </div>
+			
 		</div>
+	   </div>
 	</div>
 </body>
 </html>
